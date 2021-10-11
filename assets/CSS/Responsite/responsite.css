@@ -119,6 +119,21 @@
     .footer__social-title {
         padding-top: 35px;
     }
+    
+    .footer__social-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer__social-item {
+        width: 45px;
+        height: 45px;
+    }
+
+    .footer__social-item:first-child {
+        margin: 0 15px 0 0;
+    }
 }
 
 /* Tablet: width >= 740px and width < 1024px */
