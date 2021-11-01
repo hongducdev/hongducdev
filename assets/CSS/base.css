@@ -24,6 +24,10 @@ body {
     color: var(--white-color);
 }
 
+button {
+    font-family: 'Montserrat', sans-serif;
+}
+
 a {
     text-decoration: none;
 }
