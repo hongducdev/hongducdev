@@ -69,6 +69,10 @@
         font-size: 14px;
     }
 
+    .about-image__img {
+        transform: rotate(0);
+    }
+
     .prod__col-box-desc {
         padding: 2px 0 2px 16px;
     }
