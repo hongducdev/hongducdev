@@ -20,6 +20,11 @@
     align-items: center;
 }
 
+.content-header-2 {
+    position: relative;
+    z-index: 1;
+}
+
 .content-header__text {
     margin-left: 25px;
     font-size: 120px;
@@ -32,7 +37,9 @@
     font-weight: 500;
 
 }
-.content-header__img {
+
+.content-header__img,
+.content-header__img-star {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,6 +56,13 @@
     }    
 }
 
+.content-header__img-star {
+    width: 70%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+}
 
 .second-container {
     z-index: -20;

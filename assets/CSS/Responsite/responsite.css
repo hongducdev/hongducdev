@@ -11,10 +11,16 @@
         flex-direction: column-reverse;
     }
 
-    .content-header__img {
+    .content-header__img,
+    .content-header__img-star {
         margin-left: 55px;
         transform: translateY(0);
         width: 70%;
+    }
+
+    .content-header__img-star {
+        margin-left: 47px;
+        width: 80%;
     }
 
     .content-header-1 {
@@ -183,10 +189,16 @@
         padding-top: 15px;
     }
 
-    .content-header__img {
+    .content-header__img,
+    .content-header__img-star {
         margin-left: 135px;
         transform: translateY(0);
         width: 55%;
+    }
+
+    .content-header__img-star {
+        margin-left: 125px;
+        width: 65%;
     }
 
     .content-header-1 {
