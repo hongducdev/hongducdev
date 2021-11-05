@@ -50,11 +50,12 @@
     }
 
     .content-header__text {
-        font-size: 80px;
+        font-size: 100px;
     }
 
     .content-header__p {
-        font-size: 13px;
+        font-size: 15px;
+        line-height: 1.2rem;
     }
 
     .content-header-2 {
@@ -81,7 +82,8 @@
 
     .about-desc {
         margin-top: 30px;
-        font-size: 14px;
+        font-size: 16px;
+        line-height: 1.4rem;
     }
 
     .about-image__img {
@@ -152,6 +154,16 @@
 
     .footer__social-item:first-child {
         margin: 0 15px 0 0;
+    }
+
+    .prod__col-box-desc {
+        line-height: 1.4rem;
+        height: 1.4rem;
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
     }
 }
 
@@ -251,6 +263,12 @@
 
     .prod__col-vga {
         border-bottom-right-radius: 15px;
+    }
+
+    .input-focus,
+    .input-focus1,
+    .contact__btn {
+        width: 78%;
     }
 
     .footer__col {

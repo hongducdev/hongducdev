@@ -138,6 +138,8 @@ img {
 
 .prod__col-box--icon {
     color: var(--white-color);
+    min-width: 65px;
+    min-height: 65px;
     font-size: 30px;
     padding: 18px 14px;
     border-radius: 3px;
