@@ -36,9 +36,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateY(-10%);
     right: 0;
-    width: 100%;
+    width: 65%;
+    margin-left: 100px;
+    animation: header__img 2.5s linear alternate infinite;
 }
+
+@keyframes header__img {
+    from {
+        transform: translateY(15%);
+    }    
+}
+
 
 .second-container {
     z-index: -20;
