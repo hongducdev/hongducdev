@@ -14,9 +14,12 @@ About Me = [
 
 ## ⚡ GitHub Stats #
 
-[![Most Used Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hongduccodedao&layout=compact&theme=dracula)](https://github.com/hongduccodedao/github-readme-stats)
-
+<img
+        width="49%"
+        src="https://github-readme-streak-stats.herokuapp.com/?user=hongduccodedao&theme=dracula"
+    />
 ![hongduc-code-dao's GitHub stats](https://github-readme-stats.vercel.app/api?username=hongduccodedao&show_icons=true&theme=dracula)
+[![Most Used Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hongduccodedao&layout=compact&theme=dracula)](https://github.com/hongduccodedao/github-readme-stats)
 
 ---
 
