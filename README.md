@@ -15,7 +15,7 @@ About Me = [
 ## ⚡ GitHub Stats #
 
 <img
-        width="100%"
+        width="84%"
         src="https://github-readme-streak-stats.herokuapp.com/?user=hongduccodedao&theme=dracula"
     />
 ![hongduccodedao's GitHub stats](https://github-readme-stats.vercel.app/api?username=hongduccodedao&show_icons=true&theme=dracula)
