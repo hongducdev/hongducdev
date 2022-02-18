@@ -8,7 +8,7 @@ About Me = [
 ]
 ```
 
-![](https://komarev.com/ghpvc/?username=hongduc-code-dao)
+<a href="https://app.daily.dev/hongduccodedao"><img src="https://api.daily.dev/devcards/113e4240cf1f496aacb6f5d515d2cc88.png?r=kk5" width="400" alt="Nguyễn Hồng Đức's Dev Card"/></a> ![](https://komarev.com/ghpvc/?username=hongduc-code-dao)
 
 ---
 
