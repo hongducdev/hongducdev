@@ -1,8 +1,8 @@
 ScrollReveal({ 
     reset: true,
     distance: '50px',
-    duration: 1000,
-    delay: 300 
+    duration: 2500,
+    delay: 500 
 });
 
 ScrollReveal().reveal('#header-text, .title-content', { delay: 300, origin: 'left' });
@@ -75,14 +75,16 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.classList.remove('hidden');
-    navbarMobile.classList.add('hidden')
-    overlay.classList.add('hidden')
-    isOpen = false;
-    menuMobileBtn.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 fill-white" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd" />
-        </svg>
-    `
+    if(!isOpen) {
+        navbarMobile.classList.add('hidden')
+        overlay.classList.add('hidden')
+        isOpen = false;
+        menuMobileBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 fill-white" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd" />
+            </svg>
+        `
+    }
   } else {
     mybutton.classList.add('hidden');
   }
