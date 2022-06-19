@@ -74,7 +74,7 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.classList.remove('hidden');
-    if(!isOpen) {
+    if(isOpen == true) {
         navbarMobile.classList.add('hidden')
         overlay.classList.add('hidden')
         isOpen = false;
