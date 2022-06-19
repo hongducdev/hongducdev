@@ -74,7 +74,6 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.classList.remove('hidden');
-    if(isOpen == true) {
         navbarMobile.classList.add('hidden')
         overlay.classList.add('hidden')
         isOpen = false;
@@ -83,7 +82,6 @@ function scrollFunction() {
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd" />
             </svg>
         `
-    }
   } else {
     mybutton.classList.add('hidden');
   }
