@@ -3,12 +3,13 @@
 ```py
 About Me = [
     "My full name is Nguyen Hong Duc. Currently I am a student of ICTU."
+    "Languages that i know C/C++, HTML, CSS, JavaScript",
     "I am learning about Front-end programming."
+    "Editor I use to code: Visual Studio Code"
     "Also I have I have a few small web pages in the process of learning and creating."
 ]
 ```
-
-<a href="https://app.daily.dev/hongduccodedao"><img src="https://api.daily.dev/devcards/113e4240cf1f496aacb6f5d515d2cc88.png?r=kk5" width="400" alt="Nguyễn Hồng Đức's Dev Card"/></a> ![](https://komarev.com/ghpvc/?username=hongduc-code-dao)
+![](https://komarev.com/ghpvc/?username=hongduc-code-dao)
 
 ---
 
