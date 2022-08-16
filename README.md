@@ -34,5 +34,5 @@ About Me = [
 ---
 ## 🐛 Github contribution
 
-![snake gif](https://github.com/hongduccodedao/hongduccodedao/blob/output/github-contribution-grid-snake.gif)
+![snake gif](https://github.com/hongduccodedao/hongduccodedao/blob/output/github-contribution-grid-snake.svg#gh-dark-mode-only)
 
