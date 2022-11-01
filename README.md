@@ -140,6 +140,15 @@ About Me = [
             height="40"
         />
     </a>
+    <!-- vite -->
+    <a href="https://vitejs.dev/" target="_blank">
+        <img
+            src="https://vitejs.dev/logo.svg"
+            alt="vite"
+            width="40"
+            height="40"
+        />
+    </a>
     <!-- git -->
     <a href="https://git-scm.com/" target="_blank">
         <img
@@ -188,7 +197,7 @@ About Me = [
     <!-- netlify -->
     <a href="https://www.netlify.com/" target="_blank">
         <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/netlify/netlify-original.svg"
+            src="https://www.vectorlogo.zone/logos/netlify/netlify-icon.svg"
             alt="netlify"
             width="40"
             height="40"
@@ -253,6 +262,24 @@ About Me = [
         <img
             src="https://raw.githubusercontent.com/devicons/devicon/master/icons/illustrator/illustrator-plain.svg"
             alt="illustrator"
+            width="40"
+            height="40"
+        />
+    </a>
+    <!-- power shell -->
+    <a href="https://docs.microsoft.com/en-us/powershell/" target="_blank">
+        <img
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/powershell/powershell-original.svg"
+            alt="powershell"
+            width="40"
+            height="40"
+        />
+    </a>
+    <!-- oh my posh -->
+    <a href="https://ohmyposh.dev/" target="_blank">
+        <img
+            src="https://ohmyposh.dev/img/logo.svg"
+            alt="ohmyposh"
             width="40"
             height="40"
         />
