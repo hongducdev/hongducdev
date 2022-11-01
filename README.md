@@ -176,20 +176,20 @@ About Me = [
             height="40"
         />
     </a>
-    <!-- discord -->
-    <a href="https://discord.com/" target="_blank">
-        <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/discord/discord-original.svg"
-            alt="discord"
-            width="40"
-            height="40"
-        />
-    </a>
     <!-- heroku -->
     <a href="https://www.heroku.com/" target="_blank">
         <img
             src="https://raw.githubusercontent.com/devicons/devicon/master/icons/heroku/heroku-original.svg"
             alt="heroku"
+            width="40"
+            height="40"
+        />
+    </a>
+    <!-- netlify -->
+    <a href="https://www.netlify.com/" target="_blank">
+        <img
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/netlify/netlify-original.svg"
+            alt="netlify"
             width="40"
             height="40"
         />
