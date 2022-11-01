@@ -269,7 +269,7 @@ About Me = [
     <!-- power shell -->
     <a href="https://docs.microsoft.com/en-us/powershell/" target="_blank">
         <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/powershell/powershell-original.svg"
+            src="https://raw.githubusercontent.com/gist/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg"
             alt="powershell"
             width="40"
             height="40"
