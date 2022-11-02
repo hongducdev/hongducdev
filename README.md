@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://media0.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" alt="uvu" width="400">
+    <img src="https://marketpedia.ca/wp-content/uploads/2021/10/gif-01-brent-rambo-b25.gif" alt="uvu" width="400">
     <br>
     <br>
 </div>
