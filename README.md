@@ -23,7 +23,7 @@ About Me = [
 <div align=center>
     <img
         width="396"
-        src="https://github-readme-streak-stats.herokuapp.com/?user=hongduccodedao&bg_color=303446&text_color=c6d0f5&icon_color=ca9ee6&title_color=81c8be"
+        src="https://streak-stats.demolab.com?user=hongduccodedao&theme=material&hide_border=true&locale=vi&date_format=j%2Fn%5B%2FY%5D"
     />
     <img
         width="396"
