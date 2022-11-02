@@ -1,3 +1,9 @@
+<div align="center">
+    <img src="https://media0.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" alt="uvu" width="400">
+    <br>
+    <br>
+</div>
+
 <h1 align="center">📝 About me:</h1>
 
 ```py
