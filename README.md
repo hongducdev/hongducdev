@@ -34,7 +34,7 @@ About Me = [
 </div>
 
 <h1 align="left">🌐 Connect with me:</h1>
-<p align="left">
+<p align="center">
     <a href="https://www.facebook.com/hongduccodedao/" target="_blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="https://www.facebook.com/d4rtj" height="30" width="30" /></a>
     <a href="https://discord.com/users/769244837030526976" target="_blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.com/users/968119621544710195" height="40" width="50" /></a>
     <a href="https://www.instagram.com/pinkduwc._/" target="_blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="https://www.instagram.com/d4rtj/" height="30" width="30" /></a>
@@ -43,7 +43,7 @@ About Me = [
 </p>
 
 <h3 align="left">📚 Languages and Tools:</h3>
-<p align="left">
+<p align="center">
     <img src="https://skillicons.dev/icons?i=c,cpp,java,md,html,css,bootstrap,sass,styledcomponents,tailwind,js,nodejs,express,react,figma,firebase,git,github,heroku,mongodb,neovim,netlify,nextjs,ps,powershell,pug,redux,sqlite,stackoverflow,svg,twitter,ts,vercel,vim,vite,vscode,wordpress,xdactions&theme=dark" alt="Languages and Tools" />
 
 </p>
