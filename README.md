@@ -1,4 +1,4 @@
-<h1 align="left">📝 About me:</h1>
+<h1 align="center">📝 About me:</h1>
 
 ```py
 About Me = [
@@ -12,7 +12,7 @@ About Me = [
 
 ![](https://komarev.com/ghpvc/?username=hongduc-code-dao)
 
-<h1 align="left">📊 My Github Stats:</h1>
+<h1 align="center">📊 My Github Stats:</h1>
 
 <div align=center>
     <img
@@ -33,7 +33,7 @@ About Me = [
     />
 </div>
 
-<h1 align="left">🌐 Connect with me:</h1>
+<h1 align="center">🌐 Connect with me:</h1>
 <p align="center">
     <a href="https://www.facebook.com/hongduccodedao/" target="_blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="https://www.facebook.com/d4rtj" height="30" width="30" /></a>
     <a href="https://discord.com/users/769244837030526976" target="_blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.com/users/968119621544710195" height="40" width="50" /></a>
@@ -42,12 +42,12 @@ About Me = [
     <a href="https://www.linkedin.com/in/nguy%E1%BB%85n-h%E1%BB%93ng-%C4%91%E1%BB%A9c-aa609220a/" target="_blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/nguy%E1%BB%85n-h%E1%BB%93ng-%C4%91%E1%BB%A9c-aa609220a/" height="30" width="30" /></a>
 </p>
 
-<h3 align="left">📚 Languages and Tools:</h3>
+<h3 align="center">📚 Languages and Tools:</h3>
 <p align="center">
     <img src="https://skillicons.dev/icons?i=c,cpp,java,md,html,css,bootstrap,sass,styledcomponents,tailwind,js,nodejs,express,react,figma,firebase,git,github,heroku,mongodb,neovim,netlify,nextjs,ps,powershell,pug,redux,sqlite,stackoverflow,svg,twitter,ts,vercel,vim,vite,vscode,wordpress,xdactions&theme=dark" alt="Languages and Tools" />
 
 </p>
 
-<h3 align="left">🐛 Github contribution</h3>
+<h3 align="center">🐛 Github contribution</h3>
 
 ![snake gif](https://github.com/hongduccodedao/hongduccodedao/blob/output/github-contribution-grid-snake.svg#gh-dark-mode-only)
