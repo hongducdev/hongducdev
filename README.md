@@ -35,7 +35,7 @@ About Me = [
 <div align=center>
     <img
         width="396"
-        src="https://github-readme-stats.vercel.app/api/top-langs/?username=hongduccodedao&show_icons=true&theme=dracula"
+        src="https://github-readme-stats.vercel.app/api/top-langs/?username=hongduccodedao&show_icons=true&theme=dracula&layout=compact"
     />
 </div>
 
