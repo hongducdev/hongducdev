@@ -23,11 +23,11 @@ About Me = [
 <div align=center>
     <img
         width="396"
-        src="https://streak-stats.demolab.com?user=hongduccodedao&theme=material&hide_border=true&locale=vi&date_format=j%2Fn%5B%2FY%5D"
+        src="https://streak-stats.demolab.com?user=hongduccodedao&theme=dracula&locale=vi&date_format=j%2Fn%5B%2FY%5D"
     />
     <img
         width="396"
-        src="https://github-readme-stats.vercel.app/api?username=hongduccodedao&show_icons=true&bg_color=303446&text_color=c6d0f5&icon_color=ca9ee6&title_color=81c8be"
+        src="https://github-readme-stats.vercel.app/api?username=hongduccodedao&show_icons=true&theme=dracula"
     />
 </div>
 <br>
@@ -35,7 +35,7 @@ About Me = [
 <div align=center>
     <img
         width="396"
-        src="https://github-readme-stats.vercel.app/api/top-langs/?username=hongduccodedao&show_icons=true&layout=compact&bg_color=303446&text_color=c6d0f5&icon_color=ca9ee6&title_color=81c8be"
+        src="https://github-readme-stats.vercel.app/api/top-langs/?username=hongduccodedao&show_icons=true&theme=dracula"
     />
 </div>
 
