@@ -42,7 +42,7 @@ About Me = [
     <a href="https://www.linkedin.com/in/nguy%E1%BB%85n-h%E1%BB%93ng-%C4%91%E1%BB%A9c-aa609220a/" target="_blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/nguy%E1%BB%85n-h%E1%BB%93ng-%C4%91%E1%BB%A9c-aa609220a/" height="30" width="30" /></a>
 </p>
 
-<h3 align="center">📚 Languages and Tools:</h3>
+<h1 align="center">📚 Languages and Tools:</h1>
 <p align="center">
     <img src="https://skillicons.dev/icons?i=c,cpp,java,md,html,css,bootstrap,sass,styledcomponents,tailwind,js,nodejs,express,react,figma,firebase,git,github,heroku,mongodb,neovim,netlify,nextjs,ps,powershell,pug,redux,sqlite,stackoverflow,svg,twitter,ts,vercel,vim,vite,vscode,wordpress,xdactions&theme=dark" alt="Languages and Tools" />
 
