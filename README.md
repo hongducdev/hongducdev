@@ -16,7 +16,9 @@ About Me = [
 ]
 ```
 
-![](https://komarev.com/ghpvc/?username=hongduc-code-dao)
+<div align="center">
+    ![](https://komarev.com/ghpvc/?username=hongduc-code-dao)
+</div>
 
 <h1 align="center">📊 My Github Stats:</h1>
 
