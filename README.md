@@ -1,6 +1,5 @@
 <div align="center">
-    <img src="https://steamuserimages-a.akamaihd.net/ugc/933832491637928949/68367383D54B98E235F70EF64F6FC6DABA35B021/?imw=512&imh=512&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" alt="uvu" width="400">
-    <br>
+    <img src="https://user-images.githubusercontent.com/73995275/222146888-2ac7f3cc-a14b-4b98-9bd2-16fa99ea11f8.png">
     <br>
 </div>
 
