@@ -53,11 +53,6 @@ About Me = [
 
 </p>
 
-<h1 align="center">🐛 Github contribution</h1>
-
-![snake gif](https://github.com/hongduccodedao/hongduccodedao/blob/output/github-contribution-grid-snake.svg#gh-dark-mode-only)
-
-
 <footer align="center" >
   <img align="center" alt="colored gif" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=footer" />
 </footer>
