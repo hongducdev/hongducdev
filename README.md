@@ -41,7 +41,7 @@ About Me = [
 
 <h1 align="center">📚 Languages and Tools:</h1>
 <p align="center">
-    <img src="https://skillicons.dev/icons?i=c,cpp,java,md,html,css,bootstrap,sass,styledcomponents,tailwind,js,nodejs,express,react,figma,firebase,git,github,heroku,mongodb,neovim,netlify,nextjs,ps,powershell,pug,redux,sqlite,stackoverflow,svg,twitter,ts,vercel,vim,vite,vscode,wordpress,xdactions&theme=dark" alt="Languages and Tools" />
+    <img src="https://skillicons.dev/icons?i=c,cpp,cs,java,js,ts,html,css,bootstrap,styledcomponents,tailwind,androidstudio,devto,discord,bots,dotnet,express,figma,firebase,git,github,heroku,ai,instagram,linkedin,linux,md,materialui,mongodb,mysql,netlify,nextjs,nodejs,postman,powershell,react,redux,sqlite,stackoverflow,svg,vercel,visualstudio,vite,vscode&theme=dark" alt="Languages and Tools" />
 
 </p>
 
