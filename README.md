@@ -22,11 +22,11 @@ About Me = [
 <div align=center>
     <img
         width="396"
-        src="https://github-readme-stats.vercel.app/api?username=hongduccodedao&show_icons=true&bg_color=1e1e2e&text_color=cdd6f4&icon_color=cba6f7&title_color=a6e3a1"
+        src="https://github-readme-stats.vercel.app/api?username=hongducdev&show_icons=true&bg_color=1e1e2e&text_color=cdd6f4&icon_color=cba6f7&title_color=a6e3a1"
     />
     <img
         width="396"
-        src="https://github-readme-stats.vercel.app/api/top-langs/?username=hongduccodedao&show_icons=true&layout=compact&bg_color=1e1e2e&text_color=cdd6f4&icon_color=cba6f7&title_color=a6e3a1"
+        src="https://github-readme-stats.vercel.app/api/top-langs/?username=hongducdev&show_icons=true&layout=compact&bg_color=1e1e2e&text_color=cdd6f4&icon_color=cba6f7&title_color=a6e3a1"
     />
 </div>
 
