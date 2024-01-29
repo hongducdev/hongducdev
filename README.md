@@ -15,7 +15,8 @@ About Me = [
 ]
 ```
 
-![](https://komarev.com/ghpvc/?username=hongducdev)
+[![committers.top badge](https://user-badge.committers.top/vietnam/hongducdev.svg)](https://user-badge.committers.top/vietnam/hongducdev) <img src="https://komarev.com/ghpvc/?username=hongducdev&label=Profile%20views&color=0e75b6&style=flat" alt="hongducdev" /> 
+
 
 <h1 align="center">📊 My Github Stats:</h1>
 
