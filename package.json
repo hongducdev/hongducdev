@@ -40,7 +40,7 @@
     "picocolors": "^1.0.0",
     "path-parse": "^1.0.7",
     "picomatch": "^2.3.1",
-    "postcss": "^8.4.14",
+    "postcss": "^8.4.31",
     "is-glob": "^4.0.3",
     "lilconfig": "^2.0.5",
     "postcss-js": "^4.0.0",
