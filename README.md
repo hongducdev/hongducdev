@@ -6,13 +6,17 @@
 <h1 align="center">📝 About me:</h1>
 
 ```py
-About Me = [
-    "My full name is Nguyen Hong Duc. Currently I am a student of ICTU."
-    "Languages that i know C/C++, HTML, CSS, JavaScript",
-    "I am learning about Front-end programming."
-    "Editor I use to code: Visual Studio Code"
-    "Also I have I have a few small web pages in the process of learning and creating."
-]
+const UserInformation = {
+ pronouns: "He" | "Him",
+    askMeAbout: ["web developer"],
+    technologies:{
+        fronend: ["react-native","reactjs"],
+        backend: ["nodejs", "express"],
+        database: ["mongo","mysql"],
+        others:["Photoshop", "Illustraion", "Figma"]
+    },
+    interests: ["music"]
+}
 ```
 
 [![committers.top badge](https://user-badge.committers.top/vietnam/hongducdev.svg)](https://user-badge.committers.top/vietnam/hongducdev) <img src="https://komarev.com/ghpvc/?username=hongducdev&label=Profile%20views&color=0e75b6&style=flat" alt="hongducdev" /> 
