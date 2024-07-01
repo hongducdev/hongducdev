@@ -10,7 +10,7 @@ const UserInformation = {
  pronouns: "He" | "Him",
     askMeAbout: ["web developer"],
     technologies:{
-        fronend: ["react-native","reactjs"],
+        fronend: ["react-native","reactjs", "nextjs"],
         backend: ["nodejs", "express"],
         database: ["mongo","mysql"],
         others:["Photoshop", "Illustraion", "Figma"]
