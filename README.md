@@ -10,10 +10,10 @@ const UserInformation = {
  pronouns: "He" | "Him",
     askMeAbout: ["web developer"],
     technologies:{
-        fronend: ["react-native","reactjs", "nextjs"],
+        frontend: ["react-native","reactjs", "nextjs", "wordpress"],
         backend: ["nodejs", "express"],
         database: ["mongo","mysql"],
-        others:["Photoshop", "Illustraion", "Figma"]
+        others: ["Photoshop", "Illustraion", "Figma"]
     },
     interests: ["music"]
 }
