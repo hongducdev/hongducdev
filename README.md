@@ -47,8 +47,13 @@ const UserInformation = {
 <h1 align="center">📚 Languages and Tools:</h1>
 <p align="center">
     <img src="https://skillicons.dev/icons?i=c,cpp,cs,java,js,ts,html,css,bootstrap,styledcomponents,tailwind,androidstudio,devto,discord,bots,dotnet,express,figma,firebase,git,github,heroku,ai,instagram,linkedin,linux,md,materialui,mongodb,mysql,netlify,nextjs,nodejs,postman,powershell,react,redux,sqlite,stackoverflow,svg,vercel,visualstudio,vite,vscode&theme=dark" alt="Languages and Tools" />
-
 </p>
+
+<h1 align="center">📔 Wrapper:</h1>
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/c545b4b5-4bb6-4628-bffb-155e034bdfbe">
+    <img src="https://github.com/user-attachments/assets/2156f1c3-611f-49ba-bf4f-de6cccc94794">
+</div>
 
 <footer align="center" >
   <img align="center" alt="colored gif" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=footer" />
