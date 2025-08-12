@@ -34,8 +34,6 @@ const UserInformation = {
         src="https://github-readme-stats.vercel.app/api/top-langs/?username=hongducdev&show_icons=true&layout=compact&bg_color=1e1e2e&text_color=cdd6f4&icon_color=cba6f7&title_color=a6e3a1"
     />
 </div>
-[![GitHub Streak](https://streak-stats.demolab.com?user=hongducdev&theme=catppuccin-mocha&locale=vi)](https://git.io/streak-stats)
-
 <h1 align="center">🌐 Connect with me:</h1>
 <p align="center">
     <a href="https://www.facebook.com/hongducdev/" target="_blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="https://www.facebook.com/d4rtj" height="30" width="30" /></a>
