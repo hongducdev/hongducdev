@@ -32,6 +32,10 @@ jobs:
             - name: 🎨 Build Tailwind CSS
               run: npx tailwindcss -i ./input.css -o ./output.css --minify
 
+            - name: 🕐 Set timestamp
+              id: timestamp
+              run: echo "time=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+
             - name: 📝 Update last modified date
               run: |
                   echo "Last updated: $(date '+%Y-%m-%d %H:%M:%S')" > .last-updated
@@ -39,7 +43,7 @@ jobs:
             - name: 🚀 Commit changes
               uses: stefanzweifel/git-auto-commit-action@v5
               with:
-                  commit_message: "🤖 Auto build: Update Tailwind CSS output"
+                  commit_message: "🤖 Auto build Tailwind CSS - ${{ steps.timestamp.outputs.time }}"
                   branch: main
                   commit_user_name: GitHub Actions Bot
                   commit_user_email: actions@github.com

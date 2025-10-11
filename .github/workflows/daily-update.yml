@@ -15,7 +15,11 @@ jobs:
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: 📅 Update timestamp
+            - name: 📅 Set current date
+              id: date
+              run: echo "date=$(date '+%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+            - name: 📝 Update timestamp
               run: |
                   echo "# Last Updated" > .last-updated
                   echo "" >> .last-updated
@@ -34,7 +38,7 @@ jobs:
             - name: 🤖 Auto commit daily update
               uses: stefanzweifel/git-auto-commit-action@v5
               with:
-                  commit_message: "📅 Daily auto update: $(date '+%Y-%m-%d')"
+                  commit_message: "📅 Daily auto update: ${{ steps.date.outputs.date }}"
                   branch: main
                   commit_user_name: Daily Bot
                   commit_user_email: daily-bot@github-actions.com
