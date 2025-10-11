@@ -1,0 +1,52 @@
+name: Auto Commit Changes
+
+on:
+    push:
+        branches: [main]
+        paths:
+            - "**.html"
+            - "**.js"
+            - "input.css"
+            - "tailwind.config.js"
+    workflow_dispatch: # Cho phép chạy thủ công từ GitHub Actions tab
+
+jobs:
+    auto-commit:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: 📥 Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: 🔧 Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+
+            - name: 📦 Install dependencies
+              run: npm install
+
+            - name: 🎨 Build Tailwind CSS
+              run: npx tailwindcss -i ./input.css -o ./output.css --minify
+
+            - name: 📝 Update last modified date
+              run: |
+                  echo "Last updated: $(date '+%Y-%m-%d %H:%M:%S')" > .last-updated
+
+            - name: 🚀 Commit changes
+              uses: stefanzweifel/git-auto-commit-action@v5
+              with:
+                  commit_message: "🤖 Auto build: Update Tailwind CSS output"
+                  branch: main
+                  commit_user_name: GitHub Actions Bot
+                  commit_user_email: actions@github.com
+                  commit_author: Hong Duc <actions@github.com>
+                  file_pattern: "output.css .last-updated"
+                  skip_dirty_check: false
+                  skip_fetch: false
+                  skip_checkout: false
+                  disable_globbing: false
+                  create_branch: false

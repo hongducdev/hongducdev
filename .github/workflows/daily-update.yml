@@ -1,0 +1,42 @@
+name: Daily Auto Update
+
+on:
+    schedule:
+        - cron: "0 0 * * *" # Chạy hàng ngày lúc 00:00 UTC (7:00 sáng giờ Việt Nam)
+    workflow_dispatch: # Cho phép chạy thủ công
+
+jobs:
+    daily-update:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: 📥 Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: 📅 Update timestamp
+              run: |
+                  echo "# Last Updated" > .last-updated
+                  echo "" >> .last-updated
+                  echo "- Date: $(date '+%Y-%m-%d')" >> .last-updated
+                  echo "- Time: $(date '+%H:%M:%S UTC')" >> .last-updated
+                  echo "- Timestamp: $(date '+%s')" >> .last-updated
+
+            - name: 📊 Generate stats
+              run: |
+                  echo "" >> .last-updated
+                  echo "## Repository Stats" >> .last-updated
+                  echo "- Total HTML files: $(find . -name '*.html' -not -path './node_modules/*' | wc -l)" >> .last-updated
+                  echo "- Total JS files: $(find . -name '*.js' -not -path './node_modules/*' | wc -l)" >> .last-updated
+                  echo "- Total CSS files: $(find . -name '*.css' -not -path './node_modules/*' | wc -l)" >> .last-updated
+
+            - name: 🤖 Auto commit daily update
+              uses: stefanzweifel/git-auto-commit-action@v5
+              with:
+                  commit_message: "📅 Daily auto update: $(date '+%Y-%m-%d')"
+                  branch: main
+                  commit_user_name: Daily Bot
+                  commit_user_email: daily-bot@github-actions.com
+                  file_pattern: ".last-updated"
+                  skip_dirty_check: false
