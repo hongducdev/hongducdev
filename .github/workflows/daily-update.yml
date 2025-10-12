@@ -5,6 +5,9 @@ on:
         - cron: "0 0 * * *" # Chạy hàng ngày lúc 00:00 UTC (7:00 sáng giờ Việt Nam)
     workflow_dispatch: # Cho phép chạy thủ công
 
+permissions:
+    contents: write
+
 jobs:
     daily-update:
         runs-on: ubuntu-latest
