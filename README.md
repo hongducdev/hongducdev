@@ -50,8 +50,7 @@ const UserInformation = {
 
 <h1 align="center">📔 Wrapper:</h1>
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/c545b4b5-4bb6-4628-bffb-155e034bdfbe">
-    <img src="https://github.com/user-attachments/assets/2156f1c3-611f-49ba-bf4f-de6cccc94794">
+    <img width="676" height="1007" alt="contributions" src="https://github.com/user-attachments/assets/57edd372-8526-407f-ab89-7dd7d36b4bf5" />
 </div>
 
 <footer align="center" >
