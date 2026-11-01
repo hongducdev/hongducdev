@@ -8,5 +8,6 @@ export const siteConfig = {
     facebook: "https://facebook.com/hongducdev",
     instagram: "https://instagram.com/hongducdev",
     bluesky: "https://bsky.app/profile/hongduc.dev",
+    goodreads: "https://www.goodreads.com/hongducdev",
   },
 } as const;

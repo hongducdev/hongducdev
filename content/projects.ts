@@ -11,6 +11,50 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "prism",
+    url: "https://github.com/hongducdev/prism",
+    kind: "github",
+    year: 2026,
+    stack: ["Kotlin", "Android", "Xposed"],
+    description: {
+      vi: "Ứng dụng và module Xposed tùy biến giao diện Samsung One UI.",
+      en: "Samsung One UI customisation app and Xposed module.",
+    },
+  },
+  {
+    title: "booxbook.koplugin",
+    url: "https://github.com/hongducdev/booxbook.koplugin",
+    kind: "github",
+    year: 2026,
+    stack: ["Lua", "KOReader"],
+    description: {
+      vi: "Plugin KOReader đọc báo RSS, truyện chữ và truyện tranh CBZ offline trên máy đọc sách, bằng tiếng Việt.",
+      en: "KOReader plugin for offline RSS news, text novels and CBZ comics on e-readers, in Vietnamese.",
+    },
+  },
+  {
+    title: "SCCTLM_Foto",
+    url: "https://github.com/hongducdev/SCCTLM_Foto",
+    kind: "github",
+    year: 2026,
+    stack: ["JavaScript", "ExtendScript", "Photoshop CEP"],
+    description: {
+      vi: "Panel Photoshop tiếng Việt: làm da, đánh khối, bộ màu, Brush Lab, Rim Light và nạp Action một chạm.",
+      en: "Vietnamese Photoshop panel: skin retouching, dodge and burn, colour sets, Brush Lab, Rim Light and one-click Actions.",
+    },
+  },
+  {
+    title: "pi-live-log",
+    url: "https://github.com/hongducdev/pi-live-log",
+    kind: "github",
+    year: 2026,
+    stack: ["TypeScript", "Pi"],
+    description: {
+      vi: "Extension cho Pi: theo dõi log trực tiếp trong dòng lệnh shell và cảnh báo khi tiến trình bị treo.",
+      en: "Pi extension: live log tail in shell tool rows with a stall watchdog.",
+    },
+  },
+  {
     title: "Invadex",
     url: "https://themeforest.net/item/invadex-business-consulting-wordpress-theme/56656878",
     kind: "themeforest",

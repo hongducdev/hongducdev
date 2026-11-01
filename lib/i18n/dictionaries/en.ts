@@ -3,7 +3,7 @@ import type { Dictionary } from "./vi";
 export const en: Dictionary = {
   meta: { title: "hongducdev", description: "Portfolio of Hong Duc — front-end developer at PixelArt Team." },
   nav: { label: "Main navigation", home: "home", projects: "projects", blogs: "blog", contact: "contact" },
-  home: { greeting: "Hi, I'm Duc.", role: "Front-end developer at PixelArt Team." },
+  home: { greeting: "Hi, I'm Duc.", role: "Front-end developer at PixelArt Team.", hobby: "I love reading books." },
   projects: {
     title: "Projects",
     description: "Things I have built: WordPress themes on ThemeForest, web apps and Discord bots.",

@@ -20,16 +20,21 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <div data-pond-avoid className="flex flex-col gap-3 text-[14px] leading-relaxed lg:text-[15px]">
         <h1>{dict.home.greeting}</h1>
         <p className="opacity-60">{dict.home.role}</p>
-        <p>
-          <a
-            href={siteConfig.social.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ink-link opacity-60 hover:opacity-100 focus-visible:opacity-100"
-          >
-            github
-          </a>
-        </p>
+        <p className="opacity-60">{dict.home.hobby}</p>
+        <ul className="flex flex-wrap gap-x-4 gap-y-1">
+          {Object.entries(siteConfig.social).map(([name, url]) => (
+            <li key={name}>
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ink-link opacity-60 hover:opacity-100 focus-visible:opacity-100"
+              >
+                {name}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </main>
   );
