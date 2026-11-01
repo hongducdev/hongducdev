@@ -10,7 +10,9 @@ Target: Cloudflare Worker `hongduc-portfolio` (domain `hongduc.dev`), built with
 - `bun run build:cf` produces `.open-next/`.
 - `bun run preview` fills the static-assets cache (`populateCache`) and serves the Worker locally. `wrangler dev` alone returns 404 for pre-rendered pages because that cache step is skipped.
 - Incremental cache is `static-assets` (`open-next.config.ts`): fully static site, no R2/KV needed.
-- The build ran fine on native Windows with Node 24 and OpenNext 1.20.15 against Next 15.5.25. Run the final deploy build in WSL only if Windows fails.
+- The build ran fine on native Windows with Node 24 and OpenNext 1.20.15 against Next 15.5.28; `preview` served every route (both locales, blog posts, blog images) with the expected 200/404. OpenNext prints a "not fully compatible with Windows" warning; run the final deploy build in WSL only if Windows fails (WSL Ubuntu currently has no Node).
+- `build:cf` runs `bun run blog` first, so the compiled posts are bundled into the Worker.
+- Run `next build` and a dev server one at a time: both write `.next`, and a concurrent `next dev` makes pre-rendered pages return 500.
 
 ## Release
 Use `wrangler versions upload` then `wrangler versions deploy` for staged rollout; `wrangler rollback` reverts.

@@ -1,5 +1,7 @@
 import { KoiRenderer } from "./koi-renderer";
+import { VISIBILITY_THRESHOLD, allowedVarieties } from "./koi-varieties";
 import { World, type Box } from "./koi-world";
+import type { PondSettings } from "./pond-settings";
 
 export interface PondStats {
   koi: number;
@@ -41,6 +43,7 @@ export class PondEngine {
   private world = new World();
   private renderer: KoiRenderer;
   private raf = 0;
+  private refreshRaf = 0;
   private last = 0;
   private lastDraw = 0;
   private acc = 0;
@@ -57,16 +60,24 @@ export class PondEngine {
     this.schedule();
   });
 
+  private settings: PondSettings;
+
   constructor(
     private canvas: HTMLCanvasElement,
     private onStats: (stats: PondStats) => void,
+    initialLight: boolean,
+    initialSettings: PondSettings,
   ) {
     this.renderer = new KoiRenderer(canvas);
+    this.renderer.setTheme(initialLight, false);
+    this.settings = initialSettings;
+    this.applySettings();
     this.resizeObserver.observe(canvas);
     this.intersectionObserver.observe(canvas);
     this.reducedMotion.addEventListener("change", this.schedule);
     window.addEventListener("pointermove", this.onPointerMove, { passive: true });
     window.addEventListener("click", this.onClick);
+    window.addEventListener("scroll", this.onScroll, { passive: true });
     document.documentElement.addEventListener("pointerleave", this.onPointerLeave);
     window.addEventListener("blur", this.onPointerLeave);
     document.addEventListener("visibilitychange", this.schedule);
@@ -77,6 +88,8 @@ export class PondEngine {
   destroy(): void {
     this.disposed = true;
     cancelAnimationFrame(this.raf);
+    cancelAnimationFrame(this.refreshRaf);
+    window.removeEventListener("scroll", this.onScroll);
     this.resizeObserver.disconnect();
     this.intersectionObserver.disconnect();
     this.reducedMotion.removeEventListener("change", this.schedule);
@@ -87,9 +100,32 @@ export class PondEngine {
     document.removeEventListener("visibilitychange", this.schedule);
   }
 
-  setTheme(isLight: boolean): void {
-    this.renderer.setTheme(isLight);
-    if (this.reducedMotion.matches) this.drawStill();
+  setTheme(isLight: boolean, animate: boolean): void {
+    const still = this.reducedMotion.matches;
+    this.renderer.setTheme(isLight, animate && !still);
+    this.applyVarieties();
+    if (still) this.drawStill();
+  }
+
+  setSettings(next: PondSettings): void {
+    this.settings = next;
+    this.applySettings();
+    if (this.reducedMotion.matches) {
+      this.renderer.settle();
+      this.drawStill();
+    }
+  }
+
+  private applySettings(): void {
+    this.world.lotusOn = this.settings.lotus;
+    this.world.sakuraOn = this.settings.sakura;
+    this.world.swayAllowed = !this.reducedMotion.matches;
+    this.applyVarieties();
+  }
+
+  private applyVarieties(): void {
+    const visible = allowedVarieties(this.renderer.targetPalette, VISIBILITY_THRESHOLD);
+    this.world.setVarieties(visible.filter((id) => this.settings.varieties.includes(id)));
   }
 
   setFontFamily(family: string): void {
@@ -126,6 +162,18 @@ export class PondEngine {
     this.last = performance.now();
     this.raf = requestAnimationFrame(this.frame);
   };
+
+  /** Re-measures the avoid boxes after layout changes the render loop cannot see (route change, scroll). */
+  refreshContent(): void {
+    cancelAnimationFrame(this.refreshRaf);
+    this.refreshRaf = requestAnimationFrame(() => {
+      if (this.disposed) return;
+      this.measureContent();
+      if (this.reducedMotion.matches) this.renderer.render(this.world, STEP);
+    });
+  }
+
+  private onScroll = (): void => this.refreshContent();
 
   private measureContent(): void {
     const origin = this.canvas.getBoundingClientRect();

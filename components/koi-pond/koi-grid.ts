@@ -1,4 +1,5 @@
 import { clamp, smoothstep } from "./koi-math";
+import { packRgb, type Rgb } from "./koi-palette";
 import type { Box } from "./koi-world";
 
 /** How visible a koi stays while swimming under page content. */
@@ -23,6 +24,14 @@ export class CellLayer {
   clear(): void {
     this.glyph.fill(0);
     this.tileAlpha.fill(0);
+  }
+
+  put(i: number, tile: Rgb, tileAlpha: number, glyph: string, ink: Rgb, inkAlpha: number, fade: number): void {
+    this.tile[i] = packRgb(tile);
+    this.tileAlpha[i] = tileAlpha * fade;
+    this.glyph[i] = glyph.charCodeAt(0);
+    this.color[i] = packRgb(ink);
+    this.alpha[i] = inkAlpha * fade;
   }
 }
 

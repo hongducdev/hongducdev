@@ -1,28 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useTransition, type MouseEvent } from "react";
 import { locales, type Locale } from "@/lib/i18n/config";
 
+function isModifiedClick(e: MouseEvent): boolean {
+  return e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0;
+}
+
 export function LanguageSwitcher({ locale, label }: { locale: Locale; label: string }) {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
   const pathname = usePathname() ?? `/${locale}`;
   const prefix = `/${locale}`;
   const rest =
     pathname === prefix || pathname.startsWith(`${prefix}/`) ? pathname.slice(prefix.length) : pathname;
 
   return (
-    <nav aria-label={label} className="flex gap-3">
-      {locales.map((target) => (
-        <Link
-          key={target}
-          href={`/${target}${rest}`}
-          hrefLang={target}
-          aria-current={target === locale ? "true" : undefined}
-          className={`outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:opacity-100 ${target === locale ? "opacity-100" : "opacity-50"}`}
-        >
-          {target}
-        </Link>
-      ))}
+    <nav aria-label={label} aria-busy={isPending} className={`flex gap-3 ${isPending ? "opacity-60" : ""}`}>
+      {locales.map((target) => {
+        const href = `/${target}${rest}`;
+        return (
+          <Link
+            key={target}
+            href={href}
+            hrefLang={target}
+            aria-current={target === locale ? "true" : undefined}
+            onClick={(e) => {
+              if (isModifiedClick(e) || target === locale) return;
+              e.preventDefault();
+              startTransition(() => router.push(href));
+            }}
+            className={`outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:opacity-100 ${target === locale ? "opacity-100" : "opacity-50"}`}
+          >
+            {target}
+          </Link>
+        );
+      })}
     </nav>
   );
 }

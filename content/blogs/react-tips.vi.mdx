@@ -1,0 +1,162 @@
+---
+title: "5 React Tips hữu ích cho Frontend Developer"
+description: "Tổng hợp 5 tips và tricks trong React giúp bạn viết code hiệu quả hơn và tránh những lỗi phổ biến."
+date: "2025-01-05"
+tags: ["react", "javascript", "frontend", "tips"]
+---
+
+# 5 React Tips hữu ích cho Frontend Developer
+
+Trong bài viết này, tôi sẽ chia sẻ 5 tips hữu ích khi làm việc với React mà có thể bạn chưa biết hoặc chưa áp dụng thường xuyên.
+
+## 1. Sử dụng React.memo() để tối ưu performance
+
+`React.memo()` giúp ngăn việc re-render không cần thiết của component:
+
+```javascript
+const ExpensiveComponent = React.memo(({ data }) => {
+    // Component logic here
+    return <div>{data.name}</div>;
+});
+```
+
+**Lưu ý**: Chỉ sử dụng khi thực sự cần thiết, vì việc so sánh cũng tốn performance.
+
+## 2. Custom Hooks để tái sử dụng logic
+
+Thay vì copy-paste logic, hãy tạo custom hooks:
+
+```javascript
+const useLocalStorage = (key, initialValue) => {
+    const [storedValue, setStoredValue] = useState(() => {
+        try {
+            const item = window.localStorage.getItem(key);
+            return item ? JSON.parse(item) : initialValue;
+        } catch (error) {
+            return initialValue;
+        }
+    });
+
+    const setValue = (value) => {
+        try {
+            setStoredValue(value);
+            window.localStorage.setItem(key, JSON.stringify(value));
+        } catch (error) {
+            console.error("Error saving to localStorage", error);
+        }
+    };
+
+    return [storedValue, setValue];
+};
+```
+
+## 3. Sử dụng useCallback và useMemo đúng cách
+
+Nhiều developer lạm dụng `useCallback` và `useMemo`. Hãy chỉ sử dụng khi:
+
+-   Function được pass xuống nhiều child components
+-   Expensive calculations
+-   Dependencies ít thay đổi
+
+```javascript
+const MemoizedComponent = ({ items, onItemClick }) => {
+    const expensiveValue = useMemo(() => {
+        return items.reduce((sum, item) => sum + item.value, 0);
+    }, [items]);
+
+    const handleClick = useCallback(
+        (id) => {
+            onItemClick(id);
+        },
+        [onItemClick]
+    );
+
+    return (
+        <div>
+            <p>Total: {expensiveValue}</p>
+            {items.map((item) => (
+                <Item key={item.id} onClick={handleClick} />
+            ))}
+        </div>
+    );
+};
+```
+
+## 4. Error Boundaries để handle lỗi gracefully
+
+```javascript
+class ErrorBoundary extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { hasError: false };
+    }
+
+    static getDerivedStateFromError(error) {
+        return { hasError: true };
+    }
+
+    componentDidCatch(error, errorInfo) {
+        console.error("Error caught by boundary:", error, errorInfo);
+    }
+
+    render() {
+        if (this.state.hasError) {
+            return <h1>Something went wrong.</h1>;
+        }
+
+        return this.props.children;
+    }
+}
+```
+
+## 5. Sử dụng Fragment để tránh wrapper div không cần thiết
+
+```javascript
+// Thay vì
+const Component = () => {
+    return (
+        <div>
+            <h1>Title</h1>
+            <p>Content</p>
+        </div>
+    );
+};
+
+// Hãy sử dụng
+const Component = () => {
+    return (
+        <>
+            <h1>Title</h1>
+            <p>Content</p>
+        </>
+    );
+};
+```
+
+## Bonus Tip: Conditional Rendering
+
+Sử dụng các pattern hiệu quả cho conditional rendering:
+
+```javascript
+// Short-circuit evaluation
+{
+    isVisible && <Component />;
+}
+
+// Ternary operator
+{
+    isLoading ? <Spinner /> : <Content />;
+}
+
+// Function approach cho logic phức tạp
+const renderContent = () => {
+    if (isLoading) return <Spinner />;
+    if (error) return <ErrorMessage />;
+    if (data.length === 0) return <EmptyState />;
+    return <DataList data={data} />;
+};
+```
+
+## Kết luận
+
+Những tips này sẽ giúp bạn viết React code hiệu quả và maintainable hơn. Hãy nhớ rằng premature optimization là root of all evil - chỉ optimize khi thực sự cần thiết!

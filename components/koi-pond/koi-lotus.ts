@@ -145,7 +145,7 @@ function bumpFromKoi(world: World, pad: Pad): void {
 
 export function stepPads(world: World, dt: number): void {
   const { width: W, height: H } = world;
-  for (const pad of world.pads) {
+  for (const pad of world.activePads) {
     pad.vx += (world.random() - 0.5) * dt * 1.2;
     pad.vy += (world.random() - 0.5) * dt * 1.2;
 

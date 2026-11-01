@@ -1,19 +1,25 @@
 import { PondGrid, type CellLayer } from "./koi-grid";
 import { LotusRasterizer } from "./koi-lotus-layer";
-import { DARK, LIGHT, type Palette } from "./koi-palette";
+import { DARK, LIGHT, clonePalette, lerpPalette, type Palette } from "./koi-palette";
 import { KoiRasterizer } from "./koi-rasterizer";
+import { SakuraRasterizer } from "./koi-sakura-layer";
 import { WaterLayer } from "./koi-water-layer";
 import type { Box, World } from "./koi-world";
 
 const FALLBACK_FONT = "ui-monospace, SFMono-Regular, Menlo, monospace";
+const THEME_FADE_SECONDS = 0.45;
 
 export class KoiRenderer {
   private ctx: CanvasRenderingContext2D;
   private grid = new PondGrid();
   private rasterizer = new KoiRasterizer(this.grid);
   private lotus = new LotusRasterizer(this.grid);
+  private sakura = new SakuraRasterizer(this.grid);
   private water: WaterLayer;
-  private palette: Palette = DARK;
+  private from: Palette = clonePalette(DARK);
+  private to: Palette = DARK;
+  private blended: Palette = clonePalette(DARK);
+  private mix = 1;
   private dpr = 1;
   private fontFamily = FALLBACK_FONT;
 
@@ -24,8 +30,28 @@ export class KoiRenderer {
     this.water = new WaterLayer(ctx, this.grid);
   }
 
-  setTheme(isLight: boolean): void {
-    this.palette = isLight ? LIGHT : DARK;
+  /** The palette the pond is settling on, which is what variety visibility is judged against. */
+  get targetPalette(): Palette {
+    return this.to;
+  }
+
+  setTheme(isLight: boolean, animate: boolean): void {
+    const next = isLight ? LIGHT : DARK;
+    if (next === this.to && this.mix >= 1) return;
+    if (animate) {
+      this.from = clonePalette(this.mix < 1 ? this.blended : this.to);
+      this.mix = 0;
+    } else {
+      this.mix = 1;
+    }
+    this.to = next;
+  }
+
+  /** Jumps every fade (theme, lotus, branch) to its end state. */
+  settle(): void {
+    this.mix = 1;
+    this.lotus.snap();
+    this.sakura.snap();
   }
 
   setFontFamily(family: string): void {
@@ -43,15 +69,25 @@ export class KoiRenderer {
     this.ctx.canvas.height = Math.round(height * dpr);
   }
 
+  private currentPalette(dt: number): Palette {
+    if (this.mix >= 1) return this.to;
+    this.mix = Math.min(1, this.mix + dt / THEME_FADE_SECONDS);
+    if (this.mix >= 1) return this.to;
+    lerpPalette(this.from, this.to, this.mix, this.blended);
+    return this.blended;
+  }
+
   render(world: World, dt: number): void {
-    const { ctx, grid, palette, water } = this;
+    const { ctx, grid, water } = this;
     if (grid.cols === 0) return;
+    const palette = this.currentPalette(dt);
 
     grid.clearFrame();
     // Deeper koi first, so the ones near the surface glide over them.
     const byDepth = [...world.koi].sort((a, b) => a.depth - b.depth);
     for (const koi of byDepth) this.rasterizer.rasterize(koi, palette, world.time);
-    this.lotus.rasterize(world, palette);
+    this.lotus.rasterize(world, palette, dt);
+    this.sakura.rasterize(world, palette, dt);
     water.depositWake(world);
     grid.diffuse(dt);
 

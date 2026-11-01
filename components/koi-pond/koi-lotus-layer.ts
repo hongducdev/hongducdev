@@ -2,7 +2,8 @@ import { lineGlyph } from "./koi-cell-style";
 import type { PondGrid } from "./koi-grid";
 import { flowerCenter, type Flower, type Pad } from "./koi-lotus";
 import { TAU, angleDiff, clamp, hash3, smoothstep, valueNoise } from "./koi-math";
-import { packRgb, ramp, shade, type Palette, type Rgb } from "./koi-palette";
+import { Fader } from "./koi-fader";
+import { ramp, shade, type Palette, type Rgb } from "./koi-palette";
 import type { World } from "./koi-world";
 
 const PAD_TILE_ALPHA = 0.82;
@@ -14,9 +15,18 @@ const NOTCH_CENTER_RADIUS = 0.05;
 
 /** Paints lily pads and lotus flowers into the grid's pad layer, over the koi. */
 export class LotusRasterizer {
+  private fader = new Fader();
+  private fade = 1;
+
   constructor(private grid: PondGrid) {}
 
-  rasterize(world: World, palette: Palette): void {
+  snap(): void {
+    this.fader.snap();
+  }
+
+  rasterize(world: World, palette: Palette, dt: number): void {
+    this.fade = this.fader.update(world.lotusOn ? 1 : 0, dt);
+    if (this.fade <= 0.001) return;
     for (const pad of world.pads) this.paintPad(pad, palette, world.time);
     for (const pad of world.pads) {
       if (pad.flower) this.paintFlower(pad, pad.flower, palette, world.time);
@@ -24,12 +34,7 @@ export class LotusRasterizer {
   }
 
   private put(i: number, tile: Rgb, tileAlpha: number, glyph: string, ink: Rgb, inkAlpha: number): void {
-    const layer = this.grid.pad;
-    layer.tile[i] = packRgb(tile);
-    layer.tileAlpha[i] = tileAlpha;
-    layer.glyph[i] = glyph.charCodeAt(0);
-    layer.color[i] = packRgb(ink);
-    layer.alpha[i] = inkAlpha;
+    this.grid.pad.put(i, tile, tileAlpha, glyph, ink, inkAlpha, this.fade);
   }
 
   private paintPad(pad: Pad, palette: Palette, time: number): void {

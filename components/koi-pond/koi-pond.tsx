@@ -1,19 +1,27 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 import { PondEngine, type PondStats } from "./koi-engine";
+import { readSettings } from "./pond-settings";
+import { usePondSettings } from "./pond-settings-context";
 
 export function KoiPond() {
-  const isLight = useTheme().resolvedTheme === "light";
+  const { resolvedTheme } = useTheme();
+  const { settings, hydrated } = usePondSettings();
+  const pathname = usePathname();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const engineRef = useRef<PondEngine | null>(null);
+  const themeAppliedRef = useRef(false);
   const [stats, setStats] = useState<PondStats>({ koi: 0, pellets: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const engine = new PondEngine(canvas, setStats);
+    // next-themes sets the class before hydration, so the first seed already matches the page.
+    const isLight = document.documentElement.classList.contains("light");
+    const engine = new PondEngine(canvas, setStats, isLight, readSettings());
     engineRef.current = engine;
     const applyFont = () =>
       engine.setFontFamily(getComputedStyle(document.body).getPropertyValue("--font-mono-face").trim());
@@ -22,12 +30,23 @@ export function KoiPond() {
     return () => {
       engine.destroy();
       engineRef.current = null;
+      themeAppliedRef.current = false;
     };
   }, []);
 
   useEffect(() => {
-    engineRef.current?.setTheme(isLight);
-  }, [isLight]);
+    if (!resolvedTheme) return;
+    engineRef.current?.setTheme(resolvedTheme === "light", themeAppliedRef.current);
+    themeAppliedRef.current = true;
+  }, [resolvedTheme]);
+
+  useEffect(() => {
+    if (hydrated) engineRef.current?.setSettings(settings);
+  }, [settings, hydrated]);
+
+  useEffect(() => {
+    engineRef.current?.refreshContent();
+  }, [pathname]);
 
   return (
     <>
