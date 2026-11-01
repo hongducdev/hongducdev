@@ -1,12 +1,11 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { useId } from "react";
 import { DARK, LIGHT, packRgb } from "@/components/koi-pond/koi-palette";
 import { VARIETIES, VISIBILITY_THRESHOLD, allowedVarieties, baseSkin, type VarietyId } from "@/components/koi-pond/koi-varieties";
 import { usePondSettings } from "@/components/koi-pond/pond-settings-context";
 import type { Dictionary } from "@/lib/i18n/dictionaries/vi";
-
-const PANEL_ID = "pond-settings-panel";
 
 function swatch(rgb: number): string {
   return `rgb(${rgb >>> 16},${(rgb >>> 8) & 255},${rgb & 255})`;
@@ -28,6 +27,7 @@ function Toggle({ label, checked, onChange }: { label: string; checked: boolean;
 }
 
 export function SettingsMenu({ text }: { text: Dictionary["settings"] }) {
+  const panelId = useId();
   const isLight = useTheme().resolvedTheme === "light";
   const { settings, update } = usePondSettings();
   const palette = isLight ? LIGHT : DARK;
@@ -43,14 +43,14 @@ export function SettingsMenu({ text }: { text: Dictionary["settings"] }) {
     <>
       <button
         type="button"
-        popoverTarget={PANEL_ID}
+        popoverTarget={panelId}
         aria-haspopup="dialog"
         className="opacity-50 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:opacity-100"
       >
         {text.button}
       </button>
       <div
-        id={PANEL_ID}
+        id={panelId}
         popover="auto"
         role="dialog"
         aria-label={text.title}
