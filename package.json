@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "next": "15.5.25",
+    "next": "15.5.28",
     "next-mdx-remote": "^6.0.0",
     "react": "^19",
     "react-dom": "^19",
@@ -28,7 +28,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.5.25",
+    "eslint-config-next": "15.5.28",
     "tailwindcss": "^4",
     "typescript": "^5",
     "wrangler": "^4.156.0"
