@@ -4,7 +4,29 @@ import type { Box } from "./koi-world";
 /** How visible a koi stays while swimming under page content. */
 const DIM_UNDER_CONTENT = 0.15;
 
-/** Per-cell scratch state for one frame of the glyph pond. */
+/** Cell buffers for one drawable layer: a tile fill plus an etched glyph per cell. */
+export class CellLayer {
+  glyph = new Uint16Array(0);
+  color = new Uint32Array(0);
+  alpha = new Float32Array(0);
+  tile = new Uint32Array(0);
+  tileAlpha = new Float32Array(0);
+
+  resize(cells: number): void {
+    this.glyph = new Uint16Array(cells);
+    this.color = new Uint32Array(cells);
+    this.alpha = new Float32Array(cells);
+    this.tile = new Uint32Array(cells);
+    this.tileAlpha = new Float32Array(cells);
+  }
+
+  clear(): void {
+    this.glyph.fill(0);
+    this.tileAlpha.fill(0);
+  }
+}
+
+/** Per-cell scratch state for one frame of the glyph pond; koi occupy the grid's own buffers. */
 export class PondGrid {
   cw = 8;
   ch = 10;
@@ -20,6 +42,8 @@ export class PondGrid {
   dim = new Float32Array(0);
   shadow = new Uint8Array(0);
   energy = new Float32Array(0);
+  /** Lily pads and lotus flowers, drawn over the koi. */
+  pad = new CellLayer();
   private energyTmp = new Float32Array(0);
 
   resize(width: number, height: number): void {
@@ -35,6 +59,7 @@ export class PondGrid {
     this.tileAlpha = new Float32Array(n);
     this.dim = new Float32Array(n).fill(1);
     this.shadow = new Uint8Array(n);
+    this.pad.resize(n);
     this.energy = new Float32Array(n);
     this.energyTmp = new Float32Array(n);
   }
@@ -43,6 +68,7 @@ export class PondGrid {
     this.glyph.fill(0);
     this.tileAlpha.fill(0);
     this.shadow.fill(0);
+    this.pad.clear();
   }
 
   cellIndex(x: number, y: number): number {

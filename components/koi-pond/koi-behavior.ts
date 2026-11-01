@@ -9,7 +9,7 @@ const MAX_BEND = 0.16;
 const push = { x: 0, y: 0 };
 
 /** Sum of pushes away from every box within `margin` of (x, y), each scaled 0..1 by closeness. */
-function repel(boxes: readonly Box[], x: number, y: number, margin: number): typeof push {
+export function repel(boxes: readonly Box[], x: number, y: number, margin: number): typeof push {
   push.x = 0;
   push.y = 0;
   for (const box of boxes) {

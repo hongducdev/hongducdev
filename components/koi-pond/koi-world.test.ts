@@ -103,3 +103,73 @@ describe("World.step", () => {
     expect(calm.koi[0].startle).toBe(0);
   });
 });
+
+describe("Lotus", () => {
+  test("pads gather along the side margins and flowers sit on some of them", () => {
+    const world = makeWorld(1280, 800);
+    expect(world.pads.length).toBe(5);
+    for (const pad of world.pads) {
+      const edge = pad.x < 0.2 * world.width || pad.x > 0.78 * world.width;
+      expect(edge).toBe(true);
+    }
+    const flowers = world.pads.filter((p) => p.flower).length;
+    expect(flowers).toBeGreaterThanOrEqual(1);
+    expect(flowers).toBeLessThanOrEqual(3);
+    expect(makeWorld(390, 844).pads.every((p) => p.y < 0.6 * 844)).toBe(true);
+  });
+
+  test("pads drift but stay on screen", () => {
+    const world = makeWorld();
+    run(world, 120, () => {
+      for (const pad of world.pads) {
+        expect(pad.x).toBeGreaterThan(-pad.radius);
+        expect(pad.x).toBeLessThan(world.width + pad.radius);
+        expect(pad.y).toBeGreaterThan(-pad.radius);
+        expect(pad.y).toBeLessThan(world.height + pad.radius);
+      }
+    });
+  });
+
+  test("a pellet on a leaf rolls to the rim, out of the koi's reach until then", () => {
+    const world = makeWorld();
+    const pad = world.pads[0];
+    world.koi.forEach((k) => (k.food = null));
+    // aim opposite the notch so the pellet lands on the leaf itself
+    const angle = pad.rot + pad.notchAngle + Math.PI;
+    world.pellets.push({
+      x: pad.x + Math.cos(angle) * pad.radius * 0.3,
+      y: pad.y + Math.sin(angle) * pad.radius * 0.3,
+      born: world.time,
+      landAt: 0,
+      landed: false,
+      onPad: false,
+      vx: 0,
+      vy: 0,
+    });
+    run(world, 0.5);
+    const pellet = world.pellets[0];
+    expect(pellet.landed).toBe(true);
+    expect(pellet.onPad).toBe(true);
+    expect(world.ripples.some((r) => r.strength === 0.1)).toBe(false);
+    expect(world.eatAt(pellet.x, pellet.y, 50)).toBe(0);
+
+    run(world, 8);
+    const left = world.pellets[0];
+    if (left) expect(left.onPad).toBe(false);
+  });
+
+  test("a koi swimming near the surface under a pad rocks it and sends a ring", () => {
+    const world = makeWorld();
+    const pad = world.pads[0];
+    const koi = world.koi[0];
+    koi.depth = 1;
+    koi.depthTarget = 1;
+    for (let n = 0; n < KOI_NODES; n++) {
+      koi.nodes[n * 2] = pad.x;
+      koi.nodes[n * 2 + 1] = pad.y;
+    }
+    world.step(STEP);
+    expect(pad.wobble).toBeGreaterThan(0.9);
+    expect(world.ripples.length).toBeGreaterThan(0);
+  });
+});

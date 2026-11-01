@@ -95,9 +95,10 @@ export class WaterLayer {
   }
 
   /** Pellets fall in (' then .), land as o, bob while floating, then dim to . as they sink. */
-  drawPellets(world: World, palette: Palette): void {
+  drawPellets(world: World, palette: Palette, onPad: boolean): void {
     const { grid } = this;
     for (const pellet of world.pellets) {
+      if (pellet.onPad !== onPad) continue;
       const age = world.time - pellet.born;
       if (!pellet.landed) {
         const fall = age / pellet.landAt;
@@ -107,7 +108,7 @@ export class WaterLayer {
         continue;
       }
       const i = grid.cellIndex(pellet.x, pellet.y);
-      if (i < 0 || grid.glyph[i]) continue;
+      if (i < 0 || (!onPad && grid.glyph[i])) continue;
       const sink = smoothstep(PELLET_SINK, PELLET_LIFE, age);
       const bob = 0.8 + 0.2 * Math.sin(age * 3 + pellet.x);
       this.glyphAt(i, sink > 0.55 ? "." : "o", palette.pellet, palette.alpha * bob * (1 - 0.85 * sink));

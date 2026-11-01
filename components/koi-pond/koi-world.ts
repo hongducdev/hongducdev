@@ -1,4 +1,5 @@
 import { stepKoi } from "./koi-behavior";
+import { padAt, seedPads, stepPads, type Pad } from "./koi-lotus";
 import { TAU, clamp, type Random } from "./koi-math";
 
 export const KOI_NODES = 20;
@@ -10,6 +11,7 @@ export const BITE_LIFE = 0.45;
 export const MAX_PELLETS = 24;
 const THROW_RADIUS = 34;
 const RUSH_RANGE = 650;
+const ROLL_SPEED = 10;
 
 export type Variety = "kohaku" | "sanke" | "tancho";
 
@@ -33,6 +35,8 @@ export interface Pellet {
   /** Seconds after `born` until it hits the water; koi cannot eat it before then. */
   landAt: number;
   landed: boolean;
+  /** Resting on a lily pad: out of reach until it slides off the rim. */
+  onPad: boolean;
   vx: number;
   vy: number;
 }
@@ -98,6 +102,7 @@ export class World {
   pellets: Pellet[] = [];
   bites: Bite[] = [];
   ripples: Ripple[] = [];
+  pads: Pad[] = [];
   pointer = { x: 0, y: 0, speed: 0, active: false };
   /** Page content the koi steer around, in canvas space. */
   avoid: Box[] = [];
@@ -132,6 +137,7 @@ export class World {
     const adults = clamp(Math.round((W * H) / 240000), 3, 6);
     const young = W >= 1024 ? 2 : 0;
 
+    this.pads = seedPads(this);
     this.koi = [];
     for (let i = 0; i < adults + young; i++) {
       const isYoung = i >= adults;
@@ -192,6 +198,7 @@ export class World {
         born: this.time,
         landAt: this.rand(0.15, 0.45),
         landed: false,
+        onPad: false,
         vx: Math.cos(angle) * drift,
         vy: Math.sin(angle) * drift,
       });
@@ -202,6 +209,7 @@ export class World {
     this.time += dt;
     this.pointer.speed *= Math.exp(-dt * 8);
     for (const koi of this.koi) stepKoi(this, koi, dt);
+    stepPads(this, dt);
 
     const now = this.time;
     this.pellets = this.pellets.filter((p) => now - p.born < PELLET_LIFE);
@@ -209,20 +217,37 @@ export class World {
       if (!pellet.landed) {
         if (now - pellet.born < pellet.landAt) continue;
         pellet.landed = true;
+        // A pellet landing on a leaf makes no splash, so the koi do not rush for it.
+        if (padAt(this.pads, pellet.x, pellet.y)) continue;
         this.ripples.push({ x: pellet.x, y: pellet.y, born: now, strength: 0.1 });
         for (const koi of this.koi) {
           if (Math.hypot(koi.nodes[0] - pellet.x, koi.nodes[1] - pellet.y) < RUSH_RANGE) koi.rush = 1;
         }
         continue;
       }
-      const damp = Math.exp(-dt * 0.2);
-      pellet.vx *= damp;
-      pellet.vy *= damp;
-      pellet.x += pellet.vx * dt;
-      pellet.y += pellet.vy * dt;
+      this.driftPellet(pellet, dt);
     }
     this.ripples = this.ripples.filter((r) => now - r.born < rippleLife(r));
     this.bites = this.bites.filter((b) => now - b.born < BITE_LIFE);
+  }
+
+  /** Pellets float freely on open water; on a leaf they roll toward its rim. */
+  private driftPellet(pellet: Pellet, dt: number): void {
+    const pad = padAt(this.pads, pellet.x, pellet.y);
+    pellet.onPad = pad !== null;
+    if (pad) {
+      const ox = pellet.x - pad.x;
+      const oy = pellet.y - pad.y;
+      const len = Math.hypot(ox, oy) || 1;
+      pellet.vx = pad.vx + (ox / len) * ROLL_SPEED;
+      pellet.vy = pad.vy + (oy / len) * ROLL_SPEED;
+    } else {
+      const damp = Math.exp(-dt * 0.2);
+      pellet.vx *= damp;
+      pellet.vy *= damp;
+    }
+    pellet.x += pellet.vx * dt;
+    pellet.y += pellet.vy * dt;
   }
 
   /** Keeps the current target while it lasts; switches only for a pellet less than half as far. */
@@ -240,7 +265,7 @@ export class World {
     let best: Pellet | null = null;
     let bestDist = range * range;
     for (const pellet of this.pellets) {
-      if (!pellet.landed) continue;
+      if (!pellet.landed || pellet.onPad) continue;
       const d = (pellet.x - x) ** 2 + (pellet.y - y) ** 2;
       if (d < bestDist) {
         bestDist = d;
@@ -253,7 +278,7 @@ export class World {
   /** Removes landed pellets within `radius` of the mouth; returns how many were eaten. */
   eatAt(x: number, y: number, radius: number): number {
     const before = this.pellets.length;
-    this.pellets = this.pellets.filter((p) => !p.landed || (p.x - x) ** 2 + (p.y - y) ** 2 > radius * radius);
+    this.pellets = this.pellets.filter((p) => !p.landed || p.onPad || (p.x - x) ** 2 + (p.y - y) ** 2 > radius * radius);
     const eaten = before - this.pellets.length;
     if (eaten > 0) {
       this.ripples.push({ x, y, born: this.time, strength: 0.6 });

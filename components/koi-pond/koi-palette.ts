@@ -23,6 +23,11 @@ export interface Palette {
   hi: Rgb[];
   /** Glyph brightness relative to its tile. */
   ink: number;
+  /** Lily pad green from shade to lit. */
+  pad: Rgb[];
+  /** Lotus petal from base to tip. */
+  petal: Rgb[];
+  stamen: Rgb;
 }
 
 export const DARK: Palette = {
@@ -48,6 +53,19 @@ export const DARK: Palette = {
     [255, 178, 96],
   ],
   ink: 0.42,
+  pad: [
+    [30, 58, 40],
+    [44, 84, 52],
+    [62, 112, 66],
+    [88, 140, 84],
+  ],
+  petal: [
+    [150, 50, 90],
+    [205, 90, 125],
+    [238, 140, 165],
+    [250, 205, 215],
+  ],
+  stamen: [240, 190, 60],
 };
 
 export const LIGHT: Palette = {
@@ -73,6 +91,19 @@ export const LIGHT: Palette = {
     [248, 176, 116],
   ],
   ink: 0.45,
+  pad: [
+    [88, 128, 80],
+    [110, 150, 98],
+    [136, 172, 120],
+    [160, 192, 140],
+  ],
+  petal: [
+    [170, 50, 95],
+    [210, 85, 125],
+    [232, 130, 160],
+    [246, 190, 205],
+  ],
+  stamen: [214, 160, 30],
 };
 
 export const packRgb = (c: Rgb): number => (c[0] << 16) | (c[1] << 8) | c[2];
