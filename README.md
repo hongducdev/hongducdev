@@ -19,7 +19,7 @@ const UserInformation = {
 }
 ```
 
-[![committers.top badge](https://user-badge.committers.top/vietnam/hongducdev.svg)](https://user-badge.committers.top/vietnam/hongducdev) <img src="https://komarev.com/ghpvc/?username=hongducdev&label=Profile%20views&color=0e75b6&style=flat" alt="hongducdev" /> 
+<img src="https://komarev.com/ghpvc/?username=hongducdev&label=Profile%20views&color=0e75b6&style=flat" alt="hongducdev" /> 
 
 
 <h1 align="center">📊 My Github Stats:</h1>
@@ -46,6 +46,12 @@ const UserInformation = {
     <a href="https://www.goodreads.com/hongducdev" target="_blank"><img src="https://img.shields.io/badge/goodreads-372213?style=flat-square&logo=goodreads&logoColor=white" alt="goodreads" /></a>
     <a href="https://discord.com/users/769244837030526976" target="_blank"><img src="https://img.shields.io/badge/discord-5865F2?style=flat-square&logo=discord&logoColor=white" alt="discord" /></a>
 </p>
+
+<h1 align="center">📖 Hôm nay:</h1>
+<!--START_SECTION:daily-->
+<p align="center"><b>“Có thực mới vực được đạo”</b><br><sub>Có điều kiện vật chất đủ đầy thì mới làm được việc lớn.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL18203673W"><b>The Seven Husbands of Evelyn Hugo</b></a> · Taylor Jenkins Reid (2017) · ★ 4.1<br><sub>sách gợi ý hôm nay · thể loại: biography</sub></p>
+<!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
 <p align="center">
