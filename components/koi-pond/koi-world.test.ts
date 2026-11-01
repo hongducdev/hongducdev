@@ -158,6 +158,25 @@ describe("Lotus", () => {
     if (left) expect(left.onPad).toBe(false);
   });
 
+  test("a koi drops its target once the pellet rolls onto a leaf", () => {
+    const world = makeWorld();
+    const koi = world.koi[0];
+    const pellet = {
+      x: koi.nodes[0] + 50,
+      y: koi.nodes[1],
+      born: 0,
+      landAt: 0,
+      landed: true,
+      onPad: false,
+      vx: 0,
+      vy: 0,
+    };
+    world.pellets.push(pellet);
+    expect(world.pickFood(koi, koi.nodes[0], koi.nodes[1], 500)).toBe(pellet);
+    pellet.onPad = true;
+    expect(world.pickFood(koi, koi.nodes[0], koi.nodes[1], 500)).toBeNull();
+  });
+
   test("a koi swimming near the surface under a pad rocks it and sends a ring", () => {
     const world = makeWorld();
     const pad = world.pads[0];

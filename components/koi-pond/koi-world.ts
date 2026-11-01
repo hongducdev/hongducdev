@@ -252,7 +252,7 @@ export class World {
 
   /** Keeps the current target while it lasts; switches only for a pellet less than half as far. */
   pickFood(koi: Koi, x: number, y: number, range: number): Pellet | null {
-    if (koi.food && !this.pellets.includes(koi.food)) koi.food = null;
+    if (koi.food && (koi.food.onPad || !this.pellets.includes(koi.food))) koi.food = null;
     const nearest = this.nearestPellet(x, y, range);
     if (!koi.food) return (koi.food = nearest);
     const current = Math.hypot(koi.food.x - x, koi.food.y - y);
