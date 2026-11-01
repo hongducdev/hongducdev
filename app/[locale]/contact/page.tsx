@@ -21,7 +21,7 @@ export default async function ContactPage({ params }: Props) {
   const { contact } = getDictionary(locale);
 
   return (
-    <PageShell title={contact.title} description={contact.description} dimPond>
+    <PageShell title={contact.title} description={contact.description}>
       <ul data-pond-avoid className="flex flex-col gap-3">
         {Object.entries(siteConfig.social).map(([name, url]) => (
           <li key={name}>

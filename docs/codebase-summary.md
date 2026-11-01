@@ -5,10 +5,11 @@
 | `app/layout.tsx` | Root layout: `<html lang="vi">`, theme and pond-settings providers, and the persistent `<KoiPond />` so the pond survives locale and theme switches. `app/not-found.tsx` is the language-neutral 404 |
 | `app/[locale]/layout.tsx` | Locale validation, `generateStaticParams` for `vi`/`en`, `dynamicParams = false`, header, `HtmlLangSync` (sets `<html lang>` per locale) |
 | `app/[locale]/page.tsx` | Home page |
-| `app/[locale]/{projects,contact,blogs}/`, `app/[locale]/blogs/[slug]/` | Content pages; the post page pre-renders every `locale × slug` and sets its canonical to the Vietnamese post when the English one is missing |
+| `app/[locale]/{projects,books,contact,blogs}/`, `app/[locale]/blogs/[slug]/` | Content pages; the post page pre-renders every `locale × slug` and sets its canonical to the Vietnamese post when the English one is missing |
 | `app/sitemap.ts`, `app/robots.ts` | Sitemap with per-locale alternates; robots pointing at it |
 | `components/site-header.tsx`, `components/page-shell.tsx` | Fixed top nav (links, language, theme) and the shared column for sub-pages |
 | `content/projects.ts` | Typed project list with per-locale descriptions |
+| `scripts/sync-goodreads.ts`, `lib/goodreads/` | Build-time sync of Goodreads widget endpoints (currently-reading shelf + reading challenge) into `lib/generated/goodreads.json` (gitignored); a failed fetch keeps the previous value. Parsers read the widget JS as text, never execute it. The challenge id in `config/site.ts` is per year and must be updated each January |
 | `content/blogs/<slug>.<vi\|en>.mdx` | Blog posts; images live in `public/blogs/` |
 | `scripts/compile-mdx.mjs`, `scripts/rehype-fix-image-paths.mjs` | Build-time MDX → HTML into `lib/generated/blog-posts.json` (gitignored; Workers has no runtime `fs`) |
 | `lib/blog/posts.ts` | Reads the generated JSON; `getPosts`/`getPost` fall back to the `vi` post and flag `translated: false` |

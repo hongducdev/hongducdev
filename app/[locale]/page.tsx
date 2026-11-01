@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/config/site";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -14,9 +15,32 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
+  const pageUrl = `${siteConfig.url}/${locale}`;
 
   return (
     <main className="mx-auto flex h-[100dvh] w-full flex-col justify-end gap-10 px-6 pt-28 pb-12 lg:px-[20vw] lg:pb-32">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": `${siteConfig.url}/#website`,
+              url: siteConfig.url,
+              name: siteConfig.name,
+              inLanguage: locale,
+            },
+            {
+              "@type": "Person",
+              "@id": `${siteConfig.url}/#person`,
+              name: siteConfig.name,
+              url: pageUrl,
+              jobTitle: dict.home.role,
+              sameAs: Object.values(siteConfig.social),
+            },
+          ],
+        }}
+      />
       <div data-pond-avoid className="flex flex-col gap-3 text-[14px] leading-relaxed lg:text-[15px]">
         <h1>{dict.home.greeting}</h1>
         <p className="opacity-60">{dict.home.role}</p>
