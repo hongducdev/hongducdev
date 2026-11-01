@@ -6,7 +6,9 @@ import { locales, type Locale } from "@/lib/i18n/config";
 
 export function LanguageSwitcher({ locale, label }: { locale: Locale; label: string }) {
   const pathname = usePathname() ?? `/${locale}`;
-  const rest = pathname.replace(/^\/(vi|en)(?=\/|$)/, "");
+  const prefix = `/${locale}`;
+  const rest =
+    pathname === prefix || pathname.startsWith(`${prefix}/`) ? pathname.slice(prefix.length) : pathname;
 
   return (
     <nav aria-label={label} className="flex gap-2 text-sm">
