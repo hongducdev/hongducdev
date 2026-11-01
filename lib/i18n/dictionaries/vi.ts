@@ -1,7 +1,7 @@
 export const vi = {
   meta: { title: "hongducdev", description: "Portfolio của Hồng Đức — lập trình viên Front End tại PixelArt Team." },
   nav: { label: "Điều hướng chính", home: "trang chủ", projects: "dự án", blogs: "blog", contact: "liên hệ" },
-  home: { greeting: "Xin chào, mình là Đức.", role: "Lập trình viên Front End tại PixelArt Team." },
+  home: { greeting: "Xin chào, mình là Đức.", role: "Lập trình viên Front End tại PixelArt Team.", hobby: "Thích đọc sách." },
   projects: {
     title: "Dự án",
     description: "Các dự án mình đã làm: theme WordPress trên ThemeForest, ứng dụng web và bot Discord.",
