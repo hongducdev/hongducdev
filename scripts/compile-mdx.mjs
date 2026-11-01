@@ -53,5 +53,8 @@ const posts = await Promise.all(files.map(compilePost));
 posts.sort((a, b) => b.date.localeCompare(a.date));
 
 await fs.mkdir(path.dirname(OUTPUT_FILE), { recursive: true });
-await fs.writeFile(OUTPUT_FILE, JSON.stringify(posts));
+const output = JSON.stringify(posts);
+// Rewriting an identical file still makes a running dev server rebuild, so only write on change.
+const previous = await fs.readFile(OUTPUT_FILE, "utf8").catch(() => null);
+if (previous !== output) await fs.writeFile(OUTPUT_FILE, output);
 console.log(`compiled ${posts.length} blog posts -> ${path.relative(root, OUTPUT_FILE)}`);

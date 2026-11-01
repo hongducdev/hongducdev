@@ -4,15 +4,17 @@
   "private": true,
   "scripts": {
     "blog": "bun scripts/compile-mdx.mjs",
-    "dev": "bun run blog && next dev",
-    "build": "bun run blog && next build",
-    "build:cf": "bun run blog && opennextjs-cloudflare build",
+    "goodreads": "bun scripts/sync-goodreads.ts",
+    "prep": "bun run blog && bun run goodreads",
+    "dev": "bun run prep && next dev",
+    "build": "bun run prep && next build",
+    "build:cf": "bun run prep && opennextjs-cloudflare build",
     "preview": "opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare deploy",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "bun run blog && tsc --noEmit",
-    "test": "bun run blog && bun test"
+    "typecheck": "bun run prep && tsc --noEmit",
+    "test": "bun run prep && bun test"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

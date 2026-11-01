@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { key: "home", path: "" },
   { key: "projects", path: "/projects" },
   { key: "blogs", path: "/blogs" },
+  { key: "books", path: "/books" },
   { key: "contact", path: "/contact" },
 ] as const;
 

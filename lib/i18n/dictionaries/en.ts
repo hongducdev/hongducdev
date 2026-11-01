@@ -2,7 +2,7 @@ import type { Dictionary } from "./vi";
 
 export const en: Dictionary = {
   meta: { title: "hongducdev", description: "Portfolio of Hong Duc — front-end developer at PixelArt Team." },
-  nav: { label: "Main navigation", home: "home", projects: "projects", blogs: "blog", contact: "contact" },
+  nav: { label: "Main navigation", home: "home", projects: "projects", blogs: "blog", books: "books", contact: "contact" },
   home: { greeting: "Hi, I'm Duc.", role: "Front-end developer at PixelArt Team.", hobby: "I love reading books." },
   projects: {
     title: "Projects",
@@ -17,6 +17,15 @@ export const en: Dictionary = {
     back: "← all posts",
     minutes: (n: number) => `${n} min read`,
     untranslated: "This post is only available in Vietnamese.",
+  },
+  books: {
+    title: "Books",
+    description: "What I am reading and my reading goal this year, synced from Goodreads.",
+    currentlyReading: "Currently reading",
+    nothingReading: "Not reading anything right now.",
+    challenge: (year: number) => `${year} reading goal`,
+    progress: (read: number, goal: number) => `${read}/${goal} books`,
+    profile: "View Goodreads profile →",
   },
   contact: {
     title: "Contact",
