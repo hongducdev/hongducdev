@@ -1,6 +1,7 @@
+import { siteConfig } from "@/config/site";
 import compiled from "@/lib/generated/blog-posts.json";
 import type { Locale } from "@/lib/i18n/config";
-import { defaultLocale } from "@/lib/i18n/config";
+import { defaultLocale, locales } from "@/lib/i18n/config";
 
 export interface BlogPost {
   slug: string;
@@ -39,4 +40,10 @@ export function getPosts(locale: Locale): LocalizedPost[] {
 
 export function getPost(slug: string, locale: Locale): LocalizedPost | null {
   return pick(slug, locale);
+}
+
+export function postLanguages(slug: string): Record<string, string> | undefined {
+  const translated = locales.filter((l) => allPosts.some((p) => p.slug === slug && p.locale === l));
+  if (translated.length < 2) return undefined;
+  return Object.fromEntries(translated.map((l) => [l, `${siteConfig.url}/${l}/blogs/${slug}`]));
 }

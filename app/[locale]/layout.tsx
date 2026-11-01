@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { HtmlLangSync } from "@/components/html-lang-sync";
 import { NavigationPendingProvider } from "@/components/navigation-pending";
 import { NavigationProgress } from "@/components/navigation-progress";
+import { siteConfig } from "@/config/site";
 import { SiteHeader } from "@/components/site-header";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -22,7 +23,17 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const { meta } = getDictionary(locale);
-  return { title: meta.title, description: meta.description };
+  return {
+    title: meta.title,
+    description: meta.description,
+    openGraph: {
+      type: "website",
+      siteName: siteConfig.name,
+      locale: locale === "vi" ? "vi_VN" : "en_US",
+      title: meta.title,
+      description: meta.description,
+    },
+  };
 }
 
 export default async function LocaleLayout({
