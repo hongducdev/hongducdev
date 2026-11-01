@@ -3,20 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "build:cf": "opennextjs-cloudflare build",
+    "blog": "bun scripts/compile-mdx.mjs",
+    "dev": "bun run blog && next dev",
+    "build": "bun run blog && next build",
+    "build:cf": "bun run blog && opennextjs-cloudflare build",
     "preview": "opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare deploy",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit",
-    "test": "bun test"
+    "typecheck": "bun run blog && tsc --noEmit",
+    "test": "bun run blog && bun test"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
     "next": "15.5.28",
-    "next-mdx-remote": "^6.0.0",
     "next-themes": "^0.4.6",
     "react": "^19",
     "react-dom": "^19",
@@ -32,8 +32,13 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.28",
+    "rehype-stringify": "^10.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.2.0",
     "wrangler": "^4.156.0"
   }
 }
