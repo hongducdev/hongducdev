@@ -1,11 +1,11 @@
-# Phase 03 — Layout, glass UI, pages
+# Phase 03 — Layout, pages
 
 ## Tasks
-- [ ] Root layout: night palette tokens in `globals.css` (Tailwind v4 `@theme`), font via `next/font` with Vietnamese subset (Be Vietnam Pro or similar) — confirm diacritics render.
-- [ ] `components/layout/`: top nav (Home, Projects, Blog, Contact + language switcher), footer.
-- [ ] `components/ui/glass-card.tsx`: light `backdrop-blur` on desktop only, near-opaque bg on mobile, 1px border `white/10`; contrast ≥ 4.5:1 for body text.
+- [x] Root layout: warm light/dark tokens in `globals.css`, `next-themes`, JetBrains Mono with Vietnamese subset (done with the restyle).
+- [ ] Top nav as small lowercase centered links (home, projects, blog, contact) next to the existing language + theme toggles; no footer.
+- [ ] Content blocks are plain text + `.ink-link`, no cards; contrast ≥ 4.5:1 against both themes.
 - [ ] Home/About: hero (name, role, one-liner), short bio, currently-working-on, latest 3 posts.
-- [ ] Projects: card grid from `content/projects.ts` (typed; entries supplied by user).
+- [ ] Projects: list from `content/projects.ts` (typed; entries supplied by user).
 - [ ] Contact: links (email, GitHub, etc.) — no backend form (YAGNI).
 - [ ] Page-level metadata, per-locale `alternates`, one static OG image, `sitemap.ts`, `robots.ts`.
 

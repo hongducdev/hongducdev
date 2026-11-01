@@ -1,5 +1,7 @@
 # Phase 02 — Koi pond engine
 
+> Restyled after completion: renderer is ASCII glyphs, click drops food instead of gathering (see `plan.md` locked decisions). Behaviour below is the original spec.
+
 Files (each < 200 lines): `components/koi-pond/koi-pond.tsx` (client canvas mount), `koi-simulation.ts` (step logic), `koi-fish.ts` (body chain + steering), `koi-renderer.ts` (draw), `koi-config.ts` (counts, colors, speeds), `use-pond-pointer.ts`.
 
 ## Behaviour
@@ -10,9 +12,9 @@ Files (each < 200 lines): `components/koi-pond/koi-pond.tsx` (client canvas moun
 - No allocations in the frame loop (preallocated typed arrays).
 
 ## Tasks
-- [ ] Simulation + renderer behind a pure interface so it can be unit-tested without a DOM.
-- [ ] Mount as fixed, `pointer-events: none` canvas; pointer tracked at `window` so cards don't block it; click-to-gather fires only when the target is not a link/button/card, and never on scroll gestures.
-- [ ] Unit tests for steering bounds (fish stay on screen) and fish-count function.
+- [x] Simulation + renderer behind a pure interface so it can be unit-tested without a DOM.
+- [x] Mount as fixed, `pointer-events: none` canvas; pointer tracked at `window` so cards don't block it; click-to-gather fires only when the target is not a link/button/card, and never on scroll gestures.
+- [x] Unit tests for steering bounds (fish stay on screen) and fish-count function.
 
 ## Verify
 `bun test`; open the real page in the preview browser, screenshot at desktop + 390 px width, check frame time in DevTools performance (target ≥ 55 fps desktop).
