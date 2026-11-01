@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { TransitionLink } from "@/components/transition-link";
 import { PageShell } from "@/components/page-shell";
 import { getPosts } from "@/lib/blog/posts";
 import { formatPostDate } from "@/lib/blog/format-post-date";
@@ -33,12 +33,12 @@ export default async function BlogsPage({ params }: Props) {
         <ul data-pond-avoid className="flex flex-col gap-7">
           {posts.map((post) => (
             <li key={post.slug} className="flex flex-col gap-1">
-              <Link
+              <TransitionLink
                 href={`/${locale}/blogs/${post.slug}`}
                 className="ink-link w-fit opacity-90 hover:opacity-100 focus-visible:opacity-100"
               >
                 {post.title}
-              </Link>
+              </TransitionLink>
               <p className="opacity-60">{post.description}</p>
               <p className="text-[12px] opacity-40">
                 {formatPostDate(post.date, locale)} · {blogs.minutes(post.minutes)}
