@@ -35,7 +35,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               "@id": `${siteConfig.url}/#person`,
               name: siteConfig.name,
               url: pageUrl,
-              jobTitle: dict.home.role,
+              jobTitle: dict.home.role.replace(/\.$/, ""),
               sameAs: Object.values(siteConfig.social),
             },
           ],

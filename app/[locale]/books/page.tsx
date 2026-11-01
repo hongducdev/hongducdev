@@ -21,7 +21,7 @@ export default async function BooksPage({ params }: Props) {
   if (!isLocale(locale)) notFound();
   const copy = getDictionary(locale).books;
   const { currentlyReading, challenge } = goodreads;
-  const percent = challenge ? Math.min(100, Math.round((challenge.read / challenge.goal) * 100)) : 0;
+  const percent = challenge && challenge.goal > 0 ? Math.min(100, Math.round((challenge.read / challenge.goal) * 100)) : 0;
 
   return (
     <PageShell title={copy.title} description={copy.description}>
