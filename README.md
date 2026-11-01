@@ -27,11 +27,11 @@ const UserInformation = {
 <div align=center>
     <img
         width="396"
-        src="https://github-readme-stats.vercel.app/api?username=hongducdev&show_icons=true&bg_color=1e1e2e&text_color=cdd6f4&icon_color=cba6f7&title_color=a6e3a1"
+        src="https://github-readme-stats-fast.vercel.app/api?username=hongducdev&show_icons=true&bg_color=1e1e2e&text_color=cdd6f4&icon_color=cba6f7&title_color=a6e3a1&border_color=45475a&hide_border=false"
     />
     <img
         width="396"
-        src="https://github-readme-stats.vercel.app/api/top-langs/?username=hongducdev&show_icons=true&layout=compact&bg_color=1e1e2e&text_color=cdd6f4&icon_color=cba6f7&title_color=a6e3a1"
+        src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=hongducdev&show_icons=true&layout=compact&bg_color=1e1e2e&text_color=cdd6f4&icon_color=cba6f7&title_color=a6e3a1&border_color=45475a&hide_border=false"
     />
 </div>
 <h1 align="center">🌐 Connect with me:</h1>
@@ -54,10 +54,7 @@ const UserInformation = {
 
 <h1 align="center">📈 Live activity:</h1>
 <div align="center">
-    <img width="820" src="https://ghchart.rshah.org/E8573D/hongducdev" alt="GitHub contribution heatmap" />
-    <br>
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=hongducdev&theme=dark&hide_border=true&background=1e1e2e&stroke=cba6f7&ring=a6e3a1&fire=f38ba8&currStreakLabel=a6e3a1" alt="GitHub streak" />
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=hongducdev&theme=github_dark" alt="GitHub profile details" />
+    <img width="800" src="https://github-readme-streak-stats.herokuapp.com/?user=hongducdev&card_width=800&background=1e1e2e&border=45475a&stroke=45475a&ring=cba6f7&fire=f38ba8&currStreakNum=a6e3a1&currStreakLabel=a6e3a1&sideNums=cdd6f4&sideLabels=cdd6f4&dates=9399b2" alt="GitHub streak" />
 </div>
 
 <footer align="center" >
