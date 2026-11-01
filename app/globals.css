@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+:root {
+  --pond-bg: #050b14;
+  --foreground: #e6edf5;
+}
+
+body {
+  background: var(--pond-bg);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}

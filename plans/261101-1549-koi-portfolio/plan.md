@@ -1,6 +1,6 @@
 # Koi Pond Portfolio (hongducdev)
 
-Work context: `D:\MyProjects\hongducdev-new` (not a git repo yet — `git init` only on user request).
+Work context: `D:\MyProjects\hongducdev-new` (git repo; commits only on user request).
 
 ## Goal
 Personal portfolio with a full-screen interactive koi pond as the background, glass content cards on top, bilingual (vi/en), and the blog ported from the private repo `hongducdev/hongducdev-site`.
@@ -23,7 +23,7 @@ Personal portfolio with a full-screen interactive koi pond as the background, gl
 Next 15 + React 19 + TypeScript, Tailwind v4, MDX (`next-mdx-remote`, `gray-matter`, `rehype-highlight`), `next-themes` not needed (night only), deploy to Cloudflare Workers via `@opennextjs/cloudflare`, package manager `bun` (install + `bun test`); run OpenNext/wrangler under node, not `bun --bun`, and build the Worker in WSL Ubuntu (OpenNext on native Windows is unreliable — verify against current docs in phase 1).
 
 ## Phases
-- [ ] [Phase 01 — Scaffold & i18n routing](phase-01-scaffold-and-i18n.md)
+- [x] [Phase 01 — Scaffold & i18n routing](phase-01-scaffold-and-i18n.md)
 - [ ] [Phase 02 — Koi pond engine](phase-02-koi-pond-engine.md)
 - [ ] [Phase 03 — Layout, glass UI, pages](phase-03-layout-and-pages.md)
 - [ ] [Phase 04 — Blog port](phase-04-blog-port.md)
