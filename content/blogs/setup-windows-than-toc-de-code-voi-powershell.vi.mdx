@@ -1,0 +1,164 @@
+---
+title: "Setup Windows thần tốc để code với PowerShell"
+description: "Đây là cách mình setup Windows thần tốc với PowerShell để code và làm việc."
+date: "2025-06-22"
+tags: ["dev", "dev-setup", "blog", "hongducdev", "windows", "powershell"]
+---
+
+# Chào mừng đến với blog tiếp theo của mình!
+
+Sau mỗi lần cài lại win, phải cài lại các phần mềm một cách thủ công mất rất nhiều thủ công. Nếu ai đã sử dụng qua Linux thì có thể biết đến những file `bash shell` cài đặt mọi thứ tuần tự theo thứ tự dòng lệnh. Ở Windows thì ta có PowerShell. Mình cũng mới được biết đến những công này gần đây khi được tiếp xúc nhiều với các câu lệnh trên cửa sổ Terminal.
+
+Để cài đặt các ứng dụng cần thiết thì mình cần đến các công cụ cài đặt. Có khá công cụ phổ biến như: winget, manual, chocolatey, scoop,... Ở đây thì mình sẽ sử dụng [scoop](https://scoop.sh/). Với mức độ phổ biển và số lượng phần mềm được hỗ trợ lớn.
+
+## Tạo script cài đặt
+
+Mọi người tạo một file .txt và paste script sau vào:
+
+```bash
+# Run this command if no execution policy is set:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Util function
+function Write-Start {
+  param ($msg)
+  Write-Host ("[START] " + $msg) -ForegroundColor Green
+}
+
+function Write-Dont {
+  Write-Host "DONE" -ForegroundColor Blue; Write-Host
+}
+
+# Start 
+Start-Process -Wait powershell -verb runas -ArgumentList "Set-ItemProperty -Path REGISTRY::HKEY_LOCAL_MACHINE\Sofware\Microsoft\Windows\CurrentVersion\Policies\System -Name ConsentPromptBehaviorAdmin -Value 0"
+
+# Install PSReadLine
+Write-Start -msg "Install PSReadLine..."
+  if (Get-Module PSReadLine -ListAvailable) {
+    Write-Warning "PSReadLine is already installed"
+  } else {
+    Install-Module PSReadLine -Scope CurrentUser -Force
+  }
+
+# Install Scoop
+Write-Start -msg "Install Scoop..."
+  if (Get-Command scoop -errorAction SilentlyContinue) {
+    Write-Warning "Scoop is already installed"
+  } else {
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+  }
+
+# Install packages
+Write-Start -msg "Install packages..."
+  scoop install git
+  scoop bucket add extras
+  scoop bucket add nonportable
+	scoop bucket add versions
+  scoop bucket add nerd-fonts
+  scoop update
+
+Write-Start -msg "Installing Scoop packages..."
+  scoop install <# Web brower #>    opera googlechrome
+  scoop install <# Coding #>        vscode postman mobaxterm nvm@1.1.11 yarn pnpm python
+  scoop install <# Communication #> discord telegram
+  scoop install <# Tools #>         7zip notion oh-my-posh flow-launcher nilesoft-shell authy
+  scoop install <# Media #>         spotify
+  Start-Process -Wait powershell -verb runas -ArgumentList "scoop install JetBrainsMono-NF-Mono"
+
+Write-Start -msg "Configuring"
+  # Configure git
+  git config --global user.name "YOUR_NAME"
+  git config --global user.email "YOUR_EMAIL"
+
+  git config --global alias.co checkout
+  git config --global alias.br branch
+  git config --global alias.ph push
+  git config --global alias.pl pull
+  git config --global alias.st status
+  git config --global alias.ci commit
+
+# Finish
+Write-Host "DONE" -ForegroundColor Green
+```
+
+Sau khi đã paste script vào file .txt thì bạn rename file đó thành `setup.ps1` và chạy lệnh sau để chạy script:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File setup.ps1
+```
+
+## Lưu ý quan trọng
+
+### Trước khi chạy script
+- **Backup dữ liệu quan trọng**: Script này sẽ cài đặt nhiều phần mềm, hãy đảm bảo bạn đã backup dữ liệu quan trọng
+- **Chạy với quyền Admin**: Một số phần mềm cần quyền admin để cài đặt
+- **Kiểm tra kết nối mạng**: Đảm bảo kết nối internet ổn định trong quá trình cài đặt
+
+### Các phần mềm được cài đặt
+
+**Web Browser:**
+- Opera
+- Google Chrome
+
+**Coding Tools:**
+- Visual Studio Code
+- Postman (API testing)
+- MobaXterm (SSH client)
+- Node Version Manager (nvm)
+- Yarn & pnpm (package managers)
+- Python
+
+**Communication:**
+- Discord
+- Telegram
+
+**Utilities:**
+- 7-Zip (file compression)
+- Notion
+- Oh My Posh (terminal customization)
+- Flow Launcher (search tool)
+- Nilesoft Shell (command palette)
+- Authy (2FA authenticator)
+
+**Media:**
+- Spotify
+
+**Font:**
+- JetBrains Mono Nerd Font
+
+## Tùy chỉnh script
+
+Bạn có thể tùy chỉnh script theo nhu cầu:
+
+### Thêm/bớt phần mềm
+Chỉnh sửa phần `scoop install` để thêm hoặc bớt các phần mềm:
+
+```powershell
+scoop install <# Web brower #>    opera googlechrome
+scoop install <# Coding #>        vscode postman mobaxterm nvm@1.1.11 yarn pnpm python
+scoop install <# Communication #> discord telegram
+scoop install <# Tools #>         7zip notion oh-my-posh flow-launcher nilesoft-shell authy
+scoop install <# Media #>         spotify
+```
+
+### Thêm/bớt alias git
+
+Chỉnh sửa phần `git config --global alias` để thêm hoặc bớt các alias git:
+
+```powershell
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ph push
+git config --global alias.pl pull
+git config --global alias.st status
+git config --global alias.ci commit
+```
+
+## Kết luận
+
+Script này đã giúp mình cài đặt nhanh chóng các phần mềm cần thiết cho việc code và làm việc. Hy vọng nó cũng hữu ích cho các bạn.
+
+Nếu bạn có bất kỳ câu hỏi hoặc góp ý nào, hãy liên hệ với tôi qua các kênh social media.
+
+Chúc bạn thành công!

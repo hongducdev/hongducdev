@@ -50,3 +50,133 @@ body {
     opacity: 0.32;
   }
 }
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  overflow-wrap: anywhere;
+}
+
+.post h1,
+.post h2,
+.post h3,
+.post h4 {
+  margin-top: 1.25rem;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.post p,
+.post li {
+  opacity: 0.8;
+}
+
+.post ul,
+.post ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-left: 1.25rem;
+  list-style: revert;
+}
+
+.post a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.post blockquote {
+  border-left: 1px solid color-mix(in srgb, var(--foreground-color) 30%, transparent);
+  padding-left: 1rem;
+  opacity: 0.7;
+}
+
+.post img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.post hr {
+  border-color: color-mix(in srgb, var(--foreground-color) 15%, transparent);
+}
+
+.post :not(pre) > code {
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--foreground-color) 10%, transparent);
+  font-size: 0.9em;
+}
+
+.post pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--foreground-color) 8%, transparent);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.post table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.post th,
+.post td {
+  border: 1px solid color-mix(in srgb, var(--foreground-color) 18%, transparent);
+  padding: 0.35rem 0.7rem;
+  text-align: left;
+}
+
+:root {
+  --hl-keyword: #a626a4;
+  --hl-string: #50803c;
+  --hl-number: #986801;
+  --hl-comment: #8a8a85;
+  --hl-title: #3b6fb6;
+}
+
+.dark {
+  --hl-keyword: #d28cf0;
+  --hl-string: #98c379;
+  --hl-number: #e5c07b;
+  --hl-comment: #7d7a73;
+  --hl-title: #7ab2f0;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-built_in {
+  color: var(--hl-keyword);
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-regexp,
+.hljs-template-variable {
+  color: var(--hl-string);
+}
+
+.hljs-number,
+.hljs-symbol,
+.hljs-variable {
+  color: var(--hl-number);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--hl-comment);
+  font-style: italic;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-name,
+.hljs-function {
+  color: var(--hl-title);
+}
