@@ -4,6 +4,8 @@ import { smoothstep } from "./koi-math";
 import { packRgb, type Palette, type Rgb } from "./koi-palette";
 import { BITE_LIFE, KOI_NODES, PELLET_LIFE, PELLET_SINK, RIPPLE_SPEED, rippleLife, type World } from "./koi-world";
 
+const MAX_STYLES = 4096;
+
 /** Everything that happens on the water around the koi: wakes, ripples, pellets, bites and floor shadows. */
 export class WaterLayer {
   private styles = new Map<number, string>();
@@ -16,7 +18,8 @@ export class WaterLayer {
   fillStyleFor(rgb: number): string {
     let style = this.styles.get(rgb);
     if (!style) {
-      style = `rgb(${rgb >>> 16},${(rgb >>> 8) & 255},${rgb & 255})`;
+      if (this.styles.size > MAX_STYLES) this.styles.clear();
+      style =`rgb(${rgb >>> 16},${(rgb >>> 8) & 255},${rgb & 255})`;
       this.styles.set(rgb, style);
     }
     return style;

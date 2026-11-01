@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
-import "../globals.css";
-import { KoiPond } from "@/components/koi-pond/koi-pond";
+import { HtmlLangSync } from "@/components/html-lang-sync";
+import { SiteHeader } from "@/components/site-header";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-
-const monoFont = JetBrains_Mono({
-  subsets: ["latin", "latin-ext", "vietnamese"],
-  variable: "--font-mono-face",
-});
 
 export const dynamicParams = false;
 
@@ -40,13 +33,12 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return (
-    <html lang={locale} className={monoFont.variable} suppressHydrationWarning>
-      <body className="bg-background font-mono text-foreground">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="theme">
-          <KoiPond />
-          <div className="relative z-10">{children}</div>
-        </ThemeProvider>
-      </body>
-    </html>
+    <>
+      <HtmlLangSync locale={locale} />
+      <SiteHeader locale={locale} />
+      <div lang={locale} className="relative z-10">
+        {children}
+      </div>
+    </>
   );
 }

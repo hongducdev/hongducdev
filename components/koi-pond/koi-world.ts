@@ -1,6 +1,9 @@
 import { stepKoi } from "./koi-behavior";
+import type { Markings } from "./koi-markings";
 import { padAt, seedPads, stepPads, type Pad } from "./koi-lotus";
-import { TAU, clamp, type Random } from "./koi-math";
+import { TAU, clamp, createRng, type Random } from "./koi-math";
+import { buildBranch, type Branch } from "./koi-sakura";
+import { DEFAULT_VARIETY, VARIETIES, type VarietyId } from "./koi-varieties";
 
 export const KOI_NODES = 20;
 export const RIPPLE_SPEED = 52;
@@ -13,13 +16,7 @@ const THROW_RADIUS = 34;
 const RUSH_RANGE = 650;
 const ROLL_SPEED = 10;
 
-export type Variety = "kohaku" | "sanke" | "tancho";
-
-const VARIETY_WEIGHTS: ReadonlyArray<readonly [Variety, number]> = [
-  ["kohaku", 3],
-  ["sanke", 2],
-  ["tancho", 1],
-];
+export type Variety = VarietyId;
 
 export interface Box {
   left: number;
@@ -57,6 +54,8 @@ export interface Ripple {
 export interface Koi {
   id: number;
   variety: Variety;
+  /** Patch layout built lazily from the variety; reset to null whenever the variety changes. */
+  markings: Markings | null;
   length: number;
   /** Spine positions, snout first: x0, y0, x1, y1, ... */
   nodes: Float32Array;
@@ -103,12 +102,29 @@ export class World {
   bites: Bite[] = [];
   ripples: Ripple[] = [];
   pads: Pad[] = [];
+  lotusOn = true;
+  sakuraOn = true;
+  /** False under reduced motion: the branch holds still instead of swaying. */
+  swayAllowed = true;
+  branch: Branch | null = null;
+  allowed: readonly VarietyId[] = VARIETIES.map((v) => v.id);
   pointer = { x: 0, y: 0, speed: 0, active: false };
   /** Page content the koi steer around, in canvas space. */
   avoid: Box[] = [];
   lastFeed = -Infinity;
 
-  constructor(readonly random: Random = Math.random) {}
+  constructor(
+    readonly random: Random = Math.random,
+    private branchSeed: number = (Math.random() * 0x100000000) >>> 0,
+  ) {}
+
+  get activePads(): Pad[] {
+    return this.lotusOn ? this.pads : [];
+  }
+
+  get compact(): boolean {
+    return this.width < 768;
+  }
 
   rand(lo: number, hi: number): number {
     return lo + this.random() * (hi - lo);
@@ -119,16 +135,37 @@ export class World {
     this.width = width;
     this.height = height;
     if (first) this.seed();
+    this.branch = buildBranch(this, createRng(this.branchSeed));
+  }
+
+  /** Restricts spawning to `ids` (kohaku when empty) and recolours the koi already swimming. */
+  setVarieties(ids: readonly VarietyId[]): void {
+    const previous = this.allowed;
+    this.allowed = ids.length > 0 ? ids : [DEFAULT_VARIETY];
+    const recolour = (koi: Koi, variety: Variety) => {
+      koi.variety = variety;
+      koi.markings = null;
+    };
+    for (const koi of this.koi) {
+      if (!this.allowed.includes(koi.variety)) recolour(koi, this.pickVariety());
+    }
+    // A newly enabled variety shows up straight away instead of waiting for a reseed.
+    const added = this.allowed.filter((id) => !previous.includes(id) && !this.koi.some((k) => k.variety === id));
+    added.forEach((id, n) => {
+      const koi = this.koi[(n * 2 + 1) % Math.max(1, this.koi.length)];
+      if (koi) recolour(koi, id);
+    });
   }
 
   private pickVariety(): Variety {
-    const total = VARIETY_WEIGHTS.reduce((sum, [, weight]) => sum + weight, 0);
+    const pool = VARIETIES.filter((v) => this.allowed.includes(v.id));
+    const total = pool.reduce((sum, v) => sum + v.weight, 0);
     let roll = this.random() * total;
-    for (const [variety, weight] of VARIETY_WEIGHTS) {
-      roll -= weight;
-      if (roll <= 0) return variety;
+    for (const v of pool) {
+      roll -= v.weight;
+      if (roll <= 0) return v.id;
     }
-    return "kohaku";
+    return pool.length > 0 ? pool[pool.length - 1].id : DEFAULT_VARIETY;
   }
 
   private seed(): void {
@@ -155,6 +192,7 @@ export class World {
       this.koi.push({
         id: i + 1,
         variety: this.pickVariety(),
+        markings: null,
         length,
         nodes,
         heading,
@@ -218,7 +256,7 @@ export class World {
         if (now - pellet.born < pellet.landAt) continue;
         pellet.landed = true;
         // A pellet landing on a leaf makes no splash, so the koi do not rush for it.
-        if (padAt(this.pads, pellet.x, pellet.y)) continue;
+        if (padAt(this.activePads, pellet.x, pellet.y)) continue;
         this.ripples.push({ x: pellet.x, y: pellet.y, born: now, strength: 0.1 });
         for (const koi of this.koi) {
           if (Math.hypot(koi.nodes[0] - pellet.x, koi.nodes[1] - pellet.y) < RUSH_RANGE) koi.rush = 1;
@@ -233,7 +271,7 @@ export class World {
 
   /** Pellets float freely on open water; on a leaf they roll toward its rim. */
   private driftPellet(pellet: Pellet, dt: number): void {
-    const pad = padAt(this.pads, pellet.x, pellet.y);
+    const pad = padAt(this.activePads, pellet.x, pellet.y);
     pellet.onPad = pad !== null;
     if (pad) {
       const ox = pellet.x - pad.x;

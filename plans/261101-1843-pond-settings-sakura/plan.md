@@ -20,12 +20,12 @@ Builds on `plans/261101-1549-koi-portfolio` (phase 02 engine already complete).
 | Out of scope (YAGNI) | Petal shadow while falling, pointer pushing petals, koi spinning petals, per-koi colour crossfade on variety change |
 
 ## Phases
-- [ ] [Phase 01 — Root layout lift and locale switch](phase-01-root-layout-and-locale-switch.md)
-- [ ] [Phase 02 — Markings fix and theme crossfade](phase-02-markings-fix-and-theme-crossfade.md)
-- [ ] [Phase 03 — Settings store, menu, lotus toggle](phase-03-settings-menu-and-lotus-toggle.md)
-- [ ] [Phase 04 — Koi varieties and contrast lock](phase-04-koi-varieties-and-contrast-lock.md)
-- [ ] [Phase 05 — Sakura branch and floating petals](phase-05-sakura-branch-and-petals.md)
-- [ ] [Phase 06 — Docs, full verification](phase-06-docs-and-verification.md)
+- [x] [Phase 01 — Root layout lift and locale switch](phase-01-root-layout-and-locale-switch.md)
+- [x] [Phase 02 — Markings fix and theme crossfade](phase-02-markings-fix-and-theme-crossfade.md)
+- [x] [Phase 03 — Settings store, menu, lotus toggle](phase-03-settings-menu-and-lotus-toggle.md)
+- [x] [Phase 04 — Koi varieties and contrast lock](phase-04-koi-varieties-and-contrast-lock.md)
+- [x] [Phase 05 — Sakura branch and floating petals](phase-05-sakura-branch-and-petals.md)
+- [x] [Phase 06 — Docs, full verification](phase-06-docs-and-verification.md)
 
 Run `bun test` and `bun run typecheck` after every phase.
 
