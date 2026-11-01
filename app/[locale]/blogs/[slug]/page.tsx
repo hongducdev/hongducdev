@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { PondDim } from "@/components/pond-dim";
 import { TransitionLink } from "@/components/transition-link";
 import { siteConfig } from "@/config/site";
 import { formatPostDate } from "@/lib/blog/format-post-date";
@@ -36,23 +37,26 @@ export default async function BlogPostPage({ params }: Props) {
   const { blogs } = getDictionary(locale);
 
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-col gap-8 px-6 pt-28 pb-24 text-[14px] leading-relaxed lg:text-[15px]">
-      <article data-pond-avoid className="flex flex-col gap-8">
-        <TransitionLink
-          href={`/${locale}/blogs`}
-          className="ink-link w-fit text-[13px] opacity-60 hover:opacity-100 focus-visible:opacity-100"
-        >
-          {blogs.back}
-        </TransitionLink>
-        <header className="flex flex-col gap-2">
-          <h1 className="text-[15px] lg:text-base">{post.title}</h1>
-          <p className="text-[12px] opacity-40">
-            {formatPostDate(post.date, locale)} · {blogs.minutes(post.minutes)}
-            {!post.translated && ` · ${blogs.untranslated}`}
-          </p>
-        </header>
-        <div className="post" dangerouslySetInnerHTML={{ __html: post.html }} />
-      </article>
-    </main>
+    <>
+      <PondDim />
+      <main className="mx-auto flex w-full max-w-2xl flex-col gap-8 px-6 pt-28 pb-24 text-[14px] leading-relaxed lg:text-[15px]">
+        <article data-pond-avoid className="flex flex-col gap-8">
+          <TransitionLink
+            href={`/${locale}/blogs`}
+            className="ink-link w-fit text-[13px] opacity-60 hover:opacity-100 focus-visible:opacity-100"
+          >
+            {blogs.back}
+          </TransitionLink>
+          <header className="flex flex-col gap-2">
+            <h1 className="text-[15px] lg:text-base">{post.title}</h1>
+            <p className="text-[12px] opacity-40">
+              {formatPostDate(post.date, locale)} · {blogs.minutes(post.minutes)}
+              {!post.translated && ` · ${blogs.untranslated}`}
+            </p>
+          </header>
+          <div className="post" dangerouslySetInnerHTML={{ __html: post.html }} />
+        </article>
+      </main>
+    </>
   );
 }
