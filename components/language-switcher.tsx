@@ -11,16 +11,16 @@ export function LanguageSwitcher({ locale, label }: { locale: Locale; label: str
     pathname === prefix || pathname.startsWith(`${prefix}/`) ? pathname.slice(prefix.length) : pathname;
 
   return (
-    <nav aria-label={label} className="flex gap-2 text-sm">
+    <nav aria-label={label} className="flex gap-3">
       {locales.map((target) => (
         <Link
           key={target}
           href={`/${target}${rest}`}
           hrefLang={target}
           aria-current={target === locale ? "true" : undefined}
-          className={target === locale ? "font-semibold" : "opacity-60 hover:opacity-100"}
+          className={`outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:opacity-100 ${target === locale ? "opacity-100" : "opacity-50"}`}
         >
-          {target.toUpperCase()}
+          {target}
         </Link>
       ))}
     </nav>
