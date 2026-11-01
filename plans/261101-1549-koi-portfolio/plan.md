@@ -20,13 +20,13 @@ Personal portfolio with a full-screen interactive koi pond as the background, mi
 | Old URLs | Old routes are `/blogs`, `/blogs/[slug]`, `/projects`; new site keeps `blogs` (plural) under `/vi` and 301-redirects the old paths via `next.config` `redirects()` |
 
 ## Stack (mirrors hongducdev-site so the blog ports cleanly)
-Next 15 + React 19 + TypeScript, Tailwind v4, MDX (`next-mdx-remote`, `gray-matter`, `rehype-highlight`), `next-themes` for light/dark (default dark), deploy to Cloudflare Workers via `@opennextjs/cloudflare`, package manager `bun` (install + `bun test`); run OpenNext/wrangler under node, not `bun --bun`, and build the Worker in WSL Ubuntu (OpenNext on native Windows is unreliable — verify against current docs in phase 1).
+Next 15 + React 19 + TypeScript, Tailwind v4, MDX compiled at build time (`unified` + `remark`, `gray-matter`, `rehype-highlight`), `next-themes` for light/dark (default dark), deploy to Cloudflare Workers via `@opennextjs/cloudflare`, package manager `bun` (install + `bun test`); run OpenNext/wrangler under node, not `bun --bun`,. The Worker builds and previews on native Windows (see `docs/deployment-guide.md`).
 
 ## Phases
 - [x] [Phase 01 — Scaffold & i18n routing](phase-01-scaffold-and-i18n.md)
 - [x] [Phase 02 — Koi pond engine](phase-02-koi-pond-engine.md)
-- [ ] [Phase 03 — Layout, pages](phase-03-layout-and-pages.md)
-- [ ] [Phase 04 — Blog port](phase-04-blog-port.md)
+- [x] [Phase 03 — Layout, pages](phase-03-layout-and-pages.md)
+- [x] [Phase 04 — Blog port](phase-04-blog-port.md)
 - [ ] [Phase 05 — Polish, a11y, deploy](phase-05-polish-and-deploy.md)
 
 ## Key risks
