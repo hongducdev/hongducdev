@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { SettingsMenu } from "@/components/settings-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { TransitionLink } from "@/components/transition-link";
 import type { Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 
@@ -21,13 +21,13 @@ export function SiteHeader({ locale }: { locale: Locale }) {
     >
       <nav aria-label={dict.nav.label} className="flex gap-6">
         {NAV_ITEMS.map(({ key, path }) => (
-          <Link
+          <TransitionLink
             key={key}
             href={`/${locale}${path}`}
             className="opacity-60 outline-none transition-opacity duration-150 hover:opacity-100 focus-visible:opacity-100"
           >
             {dict.nav[key]}
-          </Link>
+          </TransitionLink>
         ))}
       </nav>
       <LanguageSwitcher locale={locale} label={dict.switcher.label} />

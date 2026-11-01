@@ -2,12 +2,9 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useTransition, type MouseEvent } from "react";
+import { useTransition } from "react";
 import { locales, type Locale } from "@/lib/i18n/config";
-
-function isModifiedClick(e: MouseEvent): boolean {
-  return e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0;
-}
+import { isModifiedClick } from "@/lib/is-modified-click";
 
 export function LanguageSwitcher({ locale, label }: { locale: Locale; label: string }) {
   const router = useRouter();

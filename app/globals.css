@@ -180,3 +180,23 @@ body {
 .hljs-function {
   color: var(--hl-title);
 }
+
+@keyframes nav-progress-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(300%);
+  }
+}
+
+.nav-progress-bar {
+  animation: nav-progress-slide 1.1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-progress-bar {
+    animation: none;
+    width: 100%;
+  }
+}

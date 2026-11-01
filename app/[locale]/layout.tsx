@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { HtmlLangSync } from "@/components/html-lang-sync";
+import { NavigationPendingProvider } from "@/components/navigation-pending";
+import { NavigationProgress } from "@/components/navigation-progress";
 import { SiteHeader } from "@/components/site-header";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -33,12 +35,13 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return (
-    <>
+    <NavigationPendingProvider>
       <HtmlLangSync locale={locale} />
+      <NavigationProgress />
       <SiteHeader locale={locale} />
       <div lang={locale} className="relative z-10">
         {children}
       </div>
-    </>
+    </NavigationPendingProvider>
   );
 }
