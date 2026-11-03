@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Ăn cây nào rào cây nấy”</b><br><sub>Sống nhờ vào đâu thì phải giữ gìn, bảo vệ nơi đó.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL629052W"><b>Manifest der Kommunistischen Partei</b></a> · Karl Marx (1848) · ★ 3.5<br><sub>sách gợi ý hôm nay · thể loại: history</sub></p>
+<p align="center"><b>“Có công mài sắt, có ngày nên kim”</b><br><sub>Kiên trì làm việc thì việc khó đến mấy cũng thành.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL15104144W"><b>The Bad Beginning</b></a> · Lemony Snicket (1999) · ★ 4.2<br><sub>sách gợi ý hôm nay · thể loại: fiction</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
