@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Gần mực thì đen, gần đèn thì sáng”</b><br><sub>Môi trường và bạn bè ảnh hưởng đến con người.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL46884W"><b>Timeline</b></a> · Michael Crichton (1999) · ★ 3.5<br><sub>sách gợi ý hôm nay · thể loại: technology</sub></p>
+<p align="center"><b>“Học thầy không tày học bạn”</b><br><sub>Học hỏi từ bạn bè quan trọng không kém học từ thầy.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL5957689W"><b>Masters of Doom</b></a> · David Kushner (2003) · ★ 4.2<br><sub>sách gợi ý hôm nay · thể loại: biography</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
