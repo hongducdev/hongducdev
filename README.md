@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Học thầy không tày học bạn”</b><br><sub>Học hỏi từ bạn bè quan trọng không kém học từ thầy.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL5957689W"><b>Masters of Doom</b></a> · David Kushner (2003) · ★ 4.2<br><sub>sách gợi ý hôm nay · thể loại: biography</sub></p>
+<p align="center"><b>“Ăn quả nhớ kẻ trồng cây”</b><br><sub>Hưởng thành quả thì phải nhớ ơn người tạo ra nó.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL85892W"><b>Dracula</b></a> · Bram Stoker (1897) · ★ 4.0<br><sub>sách gợi ý hôm nay · thể loại: history</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
