@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Uống nước nhớ nguồn”</b><br><sub>Biết ơn cội nguồn và những người đi trước.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL15739796W"><b>Tales from a Not-so-talented Pop Star (Dork Diaries #3)</b></a> · Rachel Renée Russell (2008) · ★ 4.3<br><sub>sách gợi ý hôm nay · thể loại: fiction</sub></p>
+<p align="center"><b>“Có chí thì nên”</b><br><sub>Có ý chí và quyết tâm thì sẽ làm nên việc.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL17892614W"><b>Bad Blood</b></a> · John Carreyrou (2018) · ★ 4.3<br><sub>sách gợi ý hôm nay · thể loại: technology</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
