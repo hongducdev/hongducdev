@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Có chí thì nên”</b><br><sub>Có ý chí và quyết tâm thì sẽ làm nên việc.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL17892614W"><b>Bad Blood</b></a> · John Carreyrou (2018) · ★ 4.3<br><sub>sách gợi ý hôm nay · thể loại: technology</sub></p>
+<p align="center"><b>“Thất bại là mẹ thành công”</b><br><sub>Thất bại là bài học dẫn tới thành công.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL531767W"><b>The Canterbury Tales</b></a> · Geoffrey Chaucer (1478) · ★ 3.3<br><sub>sách gợi ý hôm nay · thể loại: biography</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
