@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Thất bại là mẹ thành công”</b><br><sub>Thất bại là bài học dẫn tới thành công.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL531767W"><b>The Canterbury Tales</b></a> · Geoffrey Chaucer (1478) · ★ 3.3<br><sub>sách gợi ý hôm nay · thể loại: biography</sub></p>
+<p align="center"><b>“Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao”</b><br><sub>Đoàn kết, hợp sức thì làm được việc lớn.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL20262W"><b>The Devil in the White City</b></a> · Erik Larson (2003) · ★ 3.9<br><sub>sách gợi ý hôm nay · thể loại: history</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
