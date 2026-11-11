@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao”</b><br><sub>Đoàn kết, hợp sức thì làm được việc lớn.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL20262W"><b>The Devil in the White City</b></a> · Erik Larson (2003) · ★ 3.9<br><sub>sách gợi ý hôm nay · thể loại: history</sub></p>
+<p align="center"><b>“Tốt gỗ hơn tốt nước sơn”</b><br><sub>Phẩm chất bên trong quan trọng hơn vẻ bề ngoài.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL516728W"><b>The Crystal Shard</b></a> · R. A. Salvatore (1988) · ★ 3.9<br><sub>sách gợi ý hôm nay · thể loại: fiction</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
