@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Tốt gỗ hơn tốt nước sơn”</b><br><sub>Phẩm chất bên trong quan trọng hơn vẻ bề ngoài.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL516728W"><b>The Crystal Shard</b></a> · R. A. Salvatore (1988) · ★ 3.9<br><sub>sách gợi ý hôm nay · thể loại: fiction</sub></p>
+<p align="center"><b>“Nước chảy đá mòn”</b><br><sub>Kiên trì lâu dài thì việc khó mấy cũng thành.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL5957689W"><b>Masters of Doom</b></a> · David Kushner (2003) · ★ 4.2<br><sub>sách gợi ý hôm nay · thể loại: technology</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
