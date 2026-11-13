@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Nước chảy đá mòn”</b><br><sub>Kiên trì lâu dài thì việc khó mấy cũng thành.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL5957689W"><b>Masters of Doom</b></a> · David Kushner (2003) · ★ 4.2<br><sub>sách gợi ý hôm nay · thể loại: technology</sub></p>
+<p align="center"><b>“Đi một ngày đàng, học một sàng khôn”</b><br><sub>Đi nhiều, trải nghiệm nhiều thì hiểu biết nhiều.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL22425473W"><b>The Anthropocene Reviewed</b></a> · John Green (2019) · ★ 4.2<br><sub>sách gợi ý hôm nay · thể loại: biography</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
