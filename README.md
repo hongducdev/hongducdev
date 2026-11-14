@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Đi một ngày đàng, học một sàng khôn”</b><br><sub>Đi nhiều, trải nghiệm nhiều thì hiểu biết nhiều.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL22425473W"><b>The Anthropocene Reviewed</b></a> · John Green (2019) · ★ 4.2<br><sub>sách gợi ý hôm nay · thể loại: biography</sub></p>
+<p align="center"><b>“Lời nói chẳng mất tiền mua, lựa lời mà nói cho vừa lòng nhau”</b><br><sub>Nói năng cẩn thận, giữ hòa khí với mọi người.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL149188W"><b>The Running Man</b></a> · Stephen King (1982) · ★ 3.6<br><sub>sách gợi ý hôm nay · thể loại: history</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
