@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Lời nói chẳng mất tiền mua, lựa lời mà nói cho vừa lòng nhau”</b><br><sub>Nói năng cẩn thận, giữ hòa khí với mọi người.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL149188W"><b>The Running Man</b></a> · Stephen King (1982) · ★ 3.6<br><sub>sách gợi ý hôm nay · thể loại: history</sub></p>
+<p align="center"><b>“Trăm hay không bằng tay quen”</b><br><sub>Biết nhiều lý thuyết không bằng luyện tập thành thạo.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL17798838W"><b>Dog Man</b></a> · Dav Pilkey (1999) · ★ 4.6<br><sub>sách gợi ý hôm nay · thể loại: fiction</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
