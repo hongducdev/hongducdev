@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Trăm hay không bằng tay quen”</b><br><sub>Biết nhiều lý thuyết không bằng luyện tập thành thạo.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL17798838W"><b>Dog Man</b></a> · Dav Pilkey (1999) · ★ 4.6<br><sub>sách gợi ý hôm nay · thể loại: fiction</sub></p>
+<p align="center"><b>“Cái khó ló cái khôn”</b><br><sub>Gặp khó khăn thì con người nghĩ ra cách giải quyết.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL695408W"><b>Leonardo</b></a> · Leonardo da Vinci (1946) · ★ 3.9<br><sub>sách gợi ý hôm nay · thể loại: technology</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
