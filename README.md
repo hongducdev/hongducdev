@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Cái khó ló cái khôn”</b><br><sub>Gặp khó khăn thì con người nghĩ ra cách giải quyết.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL695408W"><b>Leonardo</b></a> · Leonardo da Vinci (1946) · ★ 3.9<br><sub>sách gợi ý hôm nay · thể loại: technology</sub></p>
+<p align="center"><b>“Không thầy đố mày làm nên”</b><br><sub>Muốn thành công phải có người thầy chỉ dạy.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL27634W"><b>Angela's Ashes</b></a> · Frank McCourt (1996) · ★ 3.8<br><sub>sách gợi ý hôm nay · thể loại: biography</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
