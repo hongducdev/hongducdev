@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Không thầy đố mày làm nên”</b><br><sub>Muốn thành công phải có người thầy chỉ dạy.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL27634W"><b>Angela's Ashes</b></a> · Frank McCourt (1996) · ★ 3.8<br><sub>sách gợi ý hôm nay · thể loại: biography</sub></p>
+<p align="center"><b>“Dục tốc bất đạt”</b><br><sub>Vội vàng, nóng vội thì không đạt được kết quả.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL16813053W"><b>Words of Radiance</b></a> · Brandon Sanderson (2012) · ★ 4.7<br><sub>sách gợi ý hôm nay · thể loại: fantasy</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
