@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Biết người biết ta, trăm trận trăm thắng”</b><br><sub>Hiểu rõ đối thủ và chính mình thì chắc thắng.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL16151508W"><b>Miss Peregrine's Home for Peculiar Children</b></a> · Ransom Riggs (2011) · ★ 4.4<br><sub>sách gợi ý hôm nay · thể loại: fiction</sub></p>
+<p align="center"><b>“Lá lành đùm lá rách”</b><br><sub>Người có điều kiện hơn nên giúp đỡ người khó khăn.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL46876W"><b>The Lost World</b></a> · Michael Crichton (1995) · ★ 4.3<br><sub>sách gợi ý hôm nay · thể loại: science</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
