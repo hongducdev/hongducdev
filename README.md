@@ -49,8 +49,8 @@ const UserInformation = {
 
 <h1 align="center">📖 Hôm nay:</h1>
 <!--START_SECTION:daily-->
-<p align="center"><b>“Lá lành đùm lá rách”</b><br><sub>Người có điều kiện hơn nên giúp đỡ người khó khăn.</sub></p>
-<p align="center">📚 <a href="https://openlibrary.org/works/OL46876W"><b>The Lost World</b></a> · Michael Crichton (1995) · ★ 4.3<br><sub>sách gợi ý hôm nay · thể loại: science</sub></p>
+<p align="center"><b>“Chớ thấy sóng cả mà ngã tay chèo”</b><br><sub>Đừng nản lòng trước khó khăn.</sub></p>
+<p align="center">📚 <a href="https://openlibrary.org/works/OL16142316W"><b>Wild</b></a> · Cheryl Strayed (1767) · ★ 3.9<br><sub>sách gợi ý hôm nay · thể loại: biography</sub></p>
 <!--END_SECTION:daily-->
 
 <h1 align="center">📚 Languages and Tools:</h1>
